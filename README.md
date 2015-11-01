@@ -11,6 +11,7 @@ Final project for the group
 * All existing unit tests pass, and new ones are written for new code.
 * Additional unit tests code reviewed by 2 other team members (pair/mobs need one other review)
 * Code coverage is > 85%.
+* Code targets 4 platforms: iOS, Android, JS API and reference application.
 * Ticket must be closed after a story is finished.
 * Time is logged in Jira for all closed tickets.
 * All commits must reference a ticket number.
