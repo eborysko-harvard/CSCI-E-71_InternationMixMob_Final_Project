@@ -1,6 +1,17 @@
 # CSCI-E-71_InternationMixMob_Final_Project
 Final project for the group **InternationalMixMob**
 
+##Product Vision
+Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application. The plugin includes:
+* Authorization service
+* Identity Information
+* Selecting Channels
+* Posting Messages
+* Presence Awareness
+* Advance Content sharing via Slash Commands
+* An example Cordova application to demostrate the plugin's features.
+
+
 ## Team members
 ### Scrum Team
 * Cornell Wright
