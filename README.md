@@ -47,6 +47,6 @@ Alpana Barua
 * Product has matched or exceeded the expectation of stake holders after product review.
 
 ## Stakeholders
-* Mobile App Developer- needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.
-* Mobile Hybrid Web Developer- needs a plugin that is platform agnostic, authentication should be fast and reliable with clear error descriptions.
-* Product Owner- needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.
+* **Mobile App Developer** - needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.
+* **Mobile Hybrid Web Developer**- needs a plugin that is platform agnostic, authentication should be fast and reliable with clear error descriptions.
+* **Product Owner** - needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.
