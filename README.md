@@ -14,14 +14,14 @@ Create Cordova plugins for iOS and Android to enable Slack services within devel
 
 ## Team members
 ### Scrum Team
-* Cornell Wright
-* Alpana Barua
-* Jeffry Pincus
-* Frederick Jansen
-* Manoj Shenoy
-* Shameek Nath
-* Justin Sanford
-* Evan Borysko
+* Cornell Wright, _iOS Developer_
+* Alpana Barua, _Scrum Master & part-time iOS Developer_
+* Jeffry Pincus, _Android Developer_
+* Frederick Jansen, _Android & Hybrid Developer_
+* Manoj Shenoy, _iOS Developer_
+* Shameek Nath, _Android Developer_
+* Justin Sanford, _Android & Hybrid Developer_
+* Evan Borysko, _Product Owner & part-time iOS Developer_
 
 ### Product owner
 Evan Borysko
