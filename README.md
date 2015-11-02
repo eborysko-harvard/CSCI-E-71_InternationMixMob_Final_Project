@@ -1,5 +1,5 @@
-# CSCI-E-71_InternationMixMob_Final_Project
-Final project for the group **InternationalMixMob**
+# Slack Services plugin for Apache Cordova
+Final project for the group **International Mix Mob**
 
 ##Product Vision
 Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application. The plugin includes:
