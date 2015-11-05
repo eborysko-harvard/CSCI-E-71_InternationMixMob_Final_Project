@@ -77,3 +77,22 @@ git checkout master
 git merge 80-git-workflow
 ```
 When followed correctly, no merge conflicts should ever appear on the master branch.
+
+## Preparing Development Environment
+The sources of this brief instruction list are the Cordova [Android Platform Guide](https://cordova.apache.org/docs/en/5.1.1/guide/platforms/android/index.html).
+1. Install [Node.js](https://nodejs.org/).  As of 11/4/2015, use [v0.12.0](https://nodejs.org/download/release/v0.12.0/).  [Node Version Manager](https://github.com/creationix/nvm) is a great tool to manage multiple versions on one machine.
+2. Install [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+3. Install [Android Studio](http://developer.android.com/sdk/installing/index.html?pkg=studio).
+4. Open the Android SDK Manager (type `android` on console) and install:
+   * Android 5.1.1 (API 22)/SDK platform
+   * Tools/Android SDK Build-tools version 19.1.0 or higher
+   * Tools/ARM System Image OR Tools/Intel x86 Atom System Image
+   * Extras/Android Support Repository
+   * (optional) Extras/Intel x86 Emulator Accelerator (if you installed Atom System Image)
+5. Install Cordova:
+   * `npm install -g cordova`
+6. Create a new project:
+   * `cordova create hello com.example.hello HelloWorld`
+   * `cd hello`
+   * `cordova platform add android`
+   * `cordova build`
