@@ -96,3 +96,24 @@ The sources of this brief instruction list are the Cordova [Android Platform Gui
    * `cd hello`
    * `cordova platform add android`
    * `cordova build`
+
+# Tools for development using XCode
+
+1. Mac with OS X 10.10.5 installed
+2. Install [Node.js 0.12]https://nodejs.org/download/release/v0.12.0/)
+2. Install Xcode 7.1 from Mac App Store
+3. Install [Git](http://sourceforge.net/projects/git-osx-installer/files/git-2.6.2-intel-universal-mavericks.dmg/download?use_mirror=autoselect)
+4. Install Cordova using the below command
+		* $ sudo npm install -g cordova
+5. Create a new project:
+   * `cordova create harvardcscie71 com.example.hello HelloWorld`
+   * `cd harvardcscie71`
+   * `cordova platform add ios`
+   * `cordova build`
+Optional - Install Github desktop from https://desktop.github.com/
+Optional - If you have multiple versions of node.js and need to switch between them using homebrew versions
+Install HomeBrew  using below command in terminal
+   * ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   * brew tap homebrew/versions
+
+
