@@ -97,7 +97,7 @@ The sources of this brief instruction list are the Cordova [Android Platform Gui
    * `cordova platform add android`
    * `cordova build`
 
-# Tools for development using XCode
+Tools for development using XCode
 
 1. Mac with OS X 10.10.5 installed
 2. Install [Node.js 0.12]https://nodejs.org/download/release/v0.12.0/)
