@@ -83,7 +83,7 @@ When followed correctly, no merge conflicts should ever appear on the master bra
 #### Installing Cordova and running Cordova HelloWorld App
 The source of this brief instruction list is the Cordova [Android Platform Guide](https://cordova.apache.org/docs/en/5.1.1/guide/platforms/android/index.html).
 
-1. Install [Node.js](https://nodejs.org/).  As of 11/4/2015, use [v0.12.0](https://nodejs.org/download/release/v0.12.0/).  [Node Version Manager](https://github.com/creationix/nvm) is a great tool to manage multiple versions on one machine.
+1. Install [Node.js](https://nodejs.org/) version 5.0.0.
 2. Install [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 3. Install [Android Studio](http://developer.android.com/sdk/installing/index.html?pkg=studio).
 4. Open the Android SDK Manager (type `android` on console) and install:
@@ -113,6 +113,8 @@ The source of this brief instruction list is the Cordova [Android Platform Guide
     * Connect the device to your computer via USB.
 7. Install Cordova:
    * `$ npm install -g cordova`
+   * `$ cordova --version` should be 5.4.0.
+   * `$ npm install -g plugman`
 8. Create a new project:
    * `$ cordova create hello com.example.hello HelloWorld`
    * `$ cd hello`
@@ -134,18 +136,21 @@ The source of this brief instruction list is the Cordova [Android Platform Guide
 #### Tools for development using XCode
 
 1. Mac with OS X 10.10.5 installed
-2. Install [Node.js 0.12](https://nodejs.org/download/release/v0.12.0/)
 2. Install Xcode 7.1 from Mac App Store
-3. Install [Git](http://sourceforge.net/projects/git-osx-installer/files/git-2.6.2-intel-universal-mavericks.dmg/download?use_mirror=autoselect)
-4. Install Cordova using the below command
-		* $ sudo npm install -g cordova
-5. Create a new project:
-   * `cordova create harvardcscie71 com.example.hello HelloWorld`
-   * `cd harvardcscie71`
-   * `cordova platform add ios`
-   * `cordova build`
+3. Install Xcode command line tools
+4. Install HomeBrew using below command in terminal
+   * `$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+   * Optionally `$ brew tap homebrew/versions`
+5. Install Node.js with HomeBrew:
+   * `$ brew install node`
+6. Install Cordova using the below command
+	 * `$ npm install -g cordova`
+   * `$ cordova --version` should be 5.4.0.
+   * `$ npm install -g plugman`
+7. Create a new project:
+   * `$ cordova create harvardcscie71 com.example.hello HelloWorld`
+   * `$ cd harvardcscie71`
+   * `$ cordova platform add ios`
+   * `$ cordova build`
 Optional - Install Github desktop from https://desktop.github.com/
 Optional - If you have multiple versions of node.js and need to switch between them using homebrew versions
-Install HomeBrew  using below command in terminal
-   * ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   * brew tap homebrew/versions
