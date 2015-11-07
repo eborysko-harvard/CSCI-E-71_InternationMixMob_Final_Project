@@ -79,28 +79,61 @@ git merge 80-git-workflow
 When followed correctly, no merge conflicts should ever appear on the master branch.
 
 ## Preparing Development Environment
-The sources of this brief instruction list are the Cordova [Android Platform Guide](https://cordova.apache.org/docs/en/5.1.1/guide/platforms/android/index.html).
+# Android
+The source of this brief instruction list is the Cordova [Android Platform Guide](https://cordova.apache.org/docs/en/5.1.1/guide/platforms/android/index.html).
+
 1. Install [Node.js](https://nodejs.org/).  As of 11/4/2015, use [v0.12.0](https://nodejs.org/download/release/v0.12.0/).  [Node Version Manager](https://github.com/creationix/nvm) is a great tool to manage multiple versions on one machine.
 2. Install [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 3. Install [Android Studio](http://developer.android.com/sdk/installing/index.html?pkg=studio).
 4. Open the Android SDK Manager (type `android` on console) and install:
-   * Android 5.1.1 (API 22)/SDK platform
-   * Tools/Android SDK Build-tools version 19.1.0 or higher
-   * Tools/ARM System Image OR Tools/Intel x86 Atom System Image
-   * Extras/Android Support Repository
-   * (optional) Extras/Intel x86 Emulator Accelerator (if you installed Atom System Image)
-5. Install Cordova:
-   * `npm install -g cordova`
-6. Create a new project:
-   * `cordova create hello com.example.hello HelloWorld`
-   * `cd hello`
-   * `cordova platform add android`
-   * `cordova build`
+  * Android SDK platform (Cordova [Android Platform Guide](https://cordova.apache.org/docs/en/5.1.1/guide/platforms/android/index.html) suggests installing API 22 (v5.1.1)).
+  * Tools/Android SDK Build-tools version 19.1.0 or higher (23.0.2 works).
+  * Extras/Android Support Repository
+5. Set up Android emulator for development:
+  * Install Intel x86 Atom System Image (from API 22) from Android SDK Manager.
+    * Windows: Install Extras/Intel x86 Emulator Accelerator from Android SDK Manager.
+    * Linux: Make sure `kvm` and `virtio` kernel modules are loaded:
+      * `$ lsmod | grep kvm` and `$ lsmod | grep virtio`.
+      * If either command gives no response, `# modprobe kvm` or `# modprobe virtio` will load the kernel modules.
+  * Click **Tools -> Manage AVDs...** in the Android SDK Manager.
+  * Click the **Device Definitions** tab.
+  * Click on a device, e.g. **Nexus 5 by Google**, then click **Create AVD...** button.
+    * Optionally modify the AVD name.
+    * In the Target field, select the Android version.
+    * In the CPU/ABI field, select **Intel Atom (x86)**.
+    * In the Skin field, select a skin (**Skin with dynamic hardware controls** works).
+    * In Emulation Options, select **Use Host GPU**.
+6. If you plan to run the app in an Android device for development:
+  * Install API matching the Android version on your device from Android SDK Manager.
+  * Enable USB debugging on the device:
+    * In **Settings -> About phone**, scroll down to the **Build number** field.
+    * Tap the **Build number** field several times until **Developer options** are unlocked.
+    * In **Settings -> Developer options**, enable **USB debugging**.
+    * Connect the device to your computer via USB.
+7. Install Cordova:
+   * `$ npm install -g cordova`
+8. Create a new project:
+   * `$ cordova create hello com.example.hello HelloWorld`
+   * `$ cd hello`
+   * `$ cordova platform add android`
+   * `$ cordova build`
+9. Deploy the app:
+  * `$ cordova run android --list` displays the deployment options available.
+  * `$ cordvoa run android --target="target"` to deploy to device or emulator of choice.
+  * App should be pushed to device, and you should see a screen with the Apache Cordova logo and a pulsing button stating the device is ready.
+10. Open new project in Android Studio:
+  * Launch Android Studio
+  * Accept all the defaults from the startup wizard.
+  * Select **Import Project**.
+  * Select location where android platform is stored (`hello/platforms/android`)
+  * Main activity is located at `android/java/com.example.hello/MainActivity.java`.
+  * It should be possible to run the app from within Android Studio via **Run -> 'android'**.
 
+# iOS
 Tools for development using XCode
 
 1. Mac with OS X 10.10.5 installed
-2. Install [Node.js 0.12]https://nodejs.org/download/release/v0.12.0/)
+2. Install [Node.js 0.12](https://nodejs.org/download/release/v0.12.0/)
 2. Install Xcode 7.1 from Mac App Store
 3. Install [Git](http://sourceforge.net/projects/git-osx-installer/files/git-2.6.2-intel-universal-mavericks.dmg/download?use_mirror=autoselect)
 4. Install Cordova using the below command
@@ -115,5 +148,3 @@ Optional - If you have multiple versions of node.js and need to switch between t
 Install HomeBrew  using below command in terminal
    * ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    * brew tap homebrew/versions
-
-
