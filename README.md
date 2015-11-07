@@ -55,6 +55,7 @@ Alpana Barua
 ## Resources
 * [JIRA - Backlog and Sprint Boards](https://harvard-coursework.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=SKCP&view=planning.nodetail&selectedIssue=SKCP-14&epics=visible)
 * [Pointing Poker](https://www.pointingpoker.com/64137)
+* [Travis-CI Dashboard](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
 
 ## Git workflow
 The idea is to follow a story branch pattern very similar to the one outlined [here](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html), with the main difference being that no interactive rebase is required to squash commits. The steps are thus as follows:
