@@ -79,7 +79,8 @@ git merge 80-git-workflow
 When followed correctly, no merge conflicts should ever appear on the master branch.
 
 ## Preparing Development Environment
-# Android
+### Android
+#### Installing Cordova and running Cordova HelloWorld App
 The source of this brief instruction list is the Cordova [Android Platform Guide](https://cordova.apache.org/docs/en/5.1.1/guide/platforms/android/index.html).
 
 1. Install [Node.js](https://nodejs.org/).  As of 11/4/2015, use [v0.12.0](https://nodejs.org/download/release/v0.12.0/).  [Node Version Manager](https://github.com/creationix/nvm) is a great tool to manage multiple versions on one machine.
@@ -129,8 +130,8 @@ The source of this brief instruction list is the Cordova [Android Platform Guide
   * Main activity is located at `android/java/com.example.hello/MainActivity.java`.
   * It should be possible to run the app from within Android Studio via **Run -> 'android'**.
 
-# iOS
-Tools for development using XCode
+### iOS
+#### Tools for development using XCode
 
 1. Mac with OS X 10.10.5 installed
 2. Install [Node.js 0.12](https://nodejs.org/download/release/v0.12.0/)
