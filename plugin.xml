@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-slack" version="0.0.1">
+  <name>Slack</name>
+  <engines>
+    <engine name="cordova" version=">=5.4.0"/>
+  </engines>
+  <js-module src="www/slack.js" name="slack">
+    <clobbers target="slack" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Slack">
+        <param name="android-package" value="edu.internationalmixmob.e71.final.Slack"/>
+      </feature>
+    </config-file>
+    <source-file src="src/android/Slack.java" />
+  </platform>
+
+</plugin>
