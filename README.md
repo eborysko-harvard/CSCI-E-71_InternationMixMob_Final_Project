@@ -1,5 +1,6 @@
 # Slack Services plugin for Apache Cordova
 Final project for the group **International Mix Mob**
+[![Build Status](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project.svg)](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
 
 ##Product Vision
 Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application. The plugin includes:
@@ -154,3 +155,7 @@ The source of this brief instruction list is the Cordova [Android Platform Guide
    * `$ cordova build`
 Optional - Install Github desktop from https://desktop.github.com/
 Optional - If you have multiple versions of node.js and need to switch between them using homebrew versions
+
+## Example CI Projects
+* [iOS Cordova] (https://github.com/eborysko-harvard/Test_CI_iOS) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_iOS.svg?branch=master)](https://travis-ci.org/eborysko-harvard/Test_CI_iOS)
+* Android 
