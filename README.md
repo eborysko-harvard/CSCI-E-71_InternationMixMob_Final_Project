@@ -157,11 +157,16 @@ The source of this brief instruction list is the Cordova [Android Platform Guide
 Optional - Install Github desktop from https://desktop.github.com/
 Optional - If you have multiple versions of node.js and need to switch between them using homebrew versions
 
+## Code Reviews
+Review Ninja has been added to Github. Directions coming soon.
+
 ## Example CI Projects
 * [iOS Cordova](https://github.com/eborysko-harvard/Test_CI_iOS) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_iOS.svg?branch=master)](https://travis-ci.org/eborysko-harvard/Test_CI_iOS)
 * [Android Cordova](https://github.com/eborysko-harvard/Test_CI_Android) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_Android.svg)](https://travis-ci.org/eborysko-harvard/Test_CI_Android)
+
 Example projects use NPM to get dependencies, run build, and run tests. After cloning, run the following commands:
 * <root of project>/npm i
 * <root of project>/npm test
 * <root of project>/npm run build
+
 I will enable more commands shortly. iOS project requires Mac OSX and Node 4.1.1 to function. Android build should run on OSX or Linux. If someone has a Windows environment to, please let me know.
