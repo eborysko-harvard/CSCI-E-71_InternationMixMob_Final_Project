@@ -161,7 +161,7 @@ Optional - If you have multiple versions of node.js and need to switch between t
 Review Ninja has been added to Github. Directions coming soon.
 
 ## Example CI Projects
-* [iOS Cordova](https://github.com/eborysko-harvard/Test_CI_iOS) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_iOS.svg?branch=master)](https://travis-ci.org/eborysko-harvard/Test_CI_iOS)
+* [iOS Cordova](https://github.com/eborysko-harvard/Test_CI_iOS) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_iOS.svg?branch=master)](https://travis-ci.org/eborysko-harvard/Test_CI_iOS) [![Coverage Status](https://coveralls.io/repos/eborysko-harvard/Test_CI_iOS/badge.svg?branch=master&service=github)](https://coveralls.io/github/eborysko-harvard/Test_CI_iOS?branch=master)
 * [Android Cordova](https://github.com/eborysko-harvard/Test_CI_Android) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_Android.svg)](https://travis-ci.org/eborysko-harvard/Test_CI_Android)
 
 Example projects use NPM to get dependencies, run build, and run tests. After cloning, run the following commands:
