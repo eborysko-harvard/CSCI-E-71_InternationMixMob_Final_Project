@@ -75,11 +75,10 @@ Rebase from master often to keep up to date with changes. Fix any merge conflict
 git fetch origin master
 git rebase origin/master
 ```
-When all work is done on this story, rebase with master once more. Then finally, merge the branch with master.
-```
-git checkout master
-git merge 80-git-workflow
-```
+When all work is done on this story, issue a [pull request](https://help.github.com/articles/using-pull-requests/) against master from your branch. This will initiate the CI builds, and allow others to review the pull requests prior to merging it to master.
+
+Once the CI builds pass, including all tests, and the code has been reviewed, you can merge the PR to master.
+
 When followed correctly, no merge conflicts should ever appear on the master branch.
 
 ## Preparing Development Environment
