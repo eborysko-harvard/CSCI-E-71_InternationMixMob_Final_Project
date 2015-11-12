@@ -2,9 +2,6 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-slack" version="0.0.1">
   <name>Slack</name>
-  <engines>
-    <engine name="cordova" version=">=5.4.0"/>
-  </engines>
   <js-module src="www/slack.js" name="slack">
     <clobbers target="slack" />
   </js-module>
@@ -12,10 +9,10 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Slack">
-        <param name="android-package" value="edu.cscie71.imm.app.slacker.client.SlackPlugin"/>
+        <param name="android-package" value="edu.cscie71.imm.app.slacker.client.Slack"/>
       </feature>
     </config-file>
-    <source-file src="src/android/Slack.java" />
+    <source-file src="src/android/Slack.java" target-dir="src/edu/cscie71/imm/app/slacker/Slack" />
   </platform>
 
 </plugin>
