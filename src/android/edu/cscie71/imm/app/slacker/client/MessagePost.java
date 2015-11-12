@@ -1,4 +1,4 @@
-package edu.internationalmixmob.e71.client;
+package edu.cscie71.imm.app.slacker.client;
 
 public class MessagePost {
     private String channel;
@@ -6,7 +6,7 @@ public class MessagePost {
     private boolean as_user = true;
 
     public MessagePost(String channel, String message) {
-        this.token = token;
+        //this.token = token;
         this.channel = channel;
         this.message = message;
     }

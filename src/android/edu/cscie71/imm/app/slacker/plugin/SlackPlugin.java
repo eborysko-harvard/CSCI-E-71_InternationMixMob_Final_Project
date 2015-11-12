@@ -1,10 +1,10 @@
-package edu.internationalmixmob.e71.final;
+package edu.cscie71.imm.app.slacker.plugin;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class Hello extends CordovaPlugin {
+public class SlackPlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {

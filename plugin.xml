@@ -12,7 +12,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Slack">
-        <param name="android-package" value="edu.internationalmixmob.e71.final.Slack"/>
+        <param name="android-package" value="edu.cscie71.imm.app.slacker.client.SlackPlugin"/>
       </feature>
     </config-file>
     <source-file src="src/android/Slack.java" />
