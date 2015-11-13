@@ -10,7 +10,14 @@
 
 @interface immSlackClient : CDVPlugin
 
+@property (nonatomic, copy) NSString* clientID;
+@property (nonatomic, assign) BOOL isSigningIn;
+@property (nonatomic, assign) NSString* slackCode;
+
+
 - (void) cordovaSlackAuthenticate:(CDVInvokedUrlCommand *) command;
+
+- (void) cordovaSlackPresence:(CDVInvokedUrlCommand *) command;
 
 //- (void) cordovaSlackLogout:(CDVInvokedUrlCommand *) command;
 
@@ -18,7 +25,9 @@
 
 #pragma mark - Slack_Utility
 
-- (NSString *) slackAuthenticate;
+- (void) slackAuthenticate;
+
+- (NSString *) slackPresence;
 
 //-(void) slackLogout;
 

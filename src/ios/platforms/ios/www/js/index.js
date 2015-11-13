@@ -28,16 +28,29 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         var btnSlackAuthenticate = document.getElementById('btnSlackAuthenticate');
+        var btnCheckPresence = document.getElementById('btnCheckPresence');
         var deviceready = document.getElementById('deviceready');
         btnSlackAuthenticate.addEventListener('click', function() {
                                               cordova.exec( function callback(data){
-                                                           window.open(data.clientID);
-                                                           }, function errorHandler(error)
+                                                           alert('test');
+                                                           }, function errorHandler(err)
                                                            {
                                                            alert(err);
                                                            }, 'immSlackClient', 'cordovaSlackAuthenticate',[]);
                                               });
+        
+        
+        btnCheckPresence.addEventListener('click',function(){
+                                          cordova.exec( function callback(data){
+                                                       alert('Presence');
+                                                       }, function errorHandler(err)
+                                                       {
+                                                       alert(err);
+                                                       }, 'immSlackClient',
+                                                       'cordovaSlackPresence', []);
+                                          });
 
+        
     },
     // deviceready Event Handler
     //

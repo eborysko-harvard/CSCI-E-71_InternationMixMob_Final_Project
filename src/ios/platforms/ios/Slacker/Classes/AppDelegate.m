@@ -32,7 +32,7 @@
 
 @implementation AppDelegate
 
-@synthesize window, viewController;
+@synthesize window, viewController,slackCode;
 
 - (id)init
 {
@@ -95,6 +95,8 @@
 // only valid if Slacker-Info.plist specifies a protocol to handle
 - (BOOL)application:(UIApplication*)application openURL:(NSURL*)url sourceApplication:(NSString*)sourceApplication annotation:(id)annotation
 {
+    
+
     if (!url) {
         return NO;
     }
