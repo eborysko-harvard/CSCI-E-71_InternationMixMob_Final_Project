@@ -1,6 +1,18 @@
 # Slack Services plugin for Apache Cordova
 Final project for the group **International Mix Mob**
-[![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin) [![ReviewNinja](https://app.review.ninja/45349867/badge)](https://app.review.ninja/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
+
+### Slacker Client
+* Objective-C [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS)
+* Java [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master)
+
+### Slacker Cordova Plugin  [![ReviewNinja](https://app.review.ninja/45349867/badge)](https://app.review.ninja/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
+* iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin)
+* Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master)
+
+### Slacker Plugin Reference Application
+* iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
+* Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
+
 
 ##Product Vision
 Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application. The plugin includes:
