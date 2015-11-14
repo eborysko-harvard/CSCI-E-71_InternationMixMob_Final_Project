@@ -2,14 +2,14 @@
 Final project for the group **International Mix Mob**
 
 ### Slacker Client
-* Objective-C [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS)
-* Java [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master)
+* Objective-C [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS) [![ReviewNinja](https://app.review.ninja/45960688/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS)
+* Java [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master) [![ReviewNinja](https://app.review.ninja/45960726/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android)
 
 ### Slacker Cordova Plugin  [![ReviewNinja](https://app.review.ninja/45349867/badge)](https://app.review.ninja/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
 * iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin)
 * Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master)
 
-### Slacker Plugin Reference Application
+### Slacker Plugin Reference Application [![ReviewNinja](https://app.review.ninja/45960788/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
 * iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
 * Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
 
