@@ -6,6 +6,7 @@ Final project for the group **International Mix Mob**
 * Java [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master) [![ReviewNinja](https://app.review.ninja/45960726/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/badge.svg?branch=master&service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android?branch=master)
 
 ### Slacker Cordova Plugin  [![ReviewNinja](https://app.review.ninja/45349867/badge)](https://app.review.ninja/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/badge.svg?branch=master&service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin?branch=master)
+
 * iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin)
 * Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master)
 
