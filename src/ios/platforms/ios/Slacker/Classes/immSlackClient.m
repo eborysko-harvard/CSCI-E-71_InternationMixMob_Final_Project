@@ -66,7 +66,6 @@ NSString *slackAccessToken;
         
     }
     
-    
    // return [self application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     return YES;
     
@@ -105,7 +104,7 @@ NSString *slackAccessToken;
     NSString* userID = [command.arguments objectAtIndex:0];
 
     
-    NSString *presence = [self slackPresence];
+    NSString *presence = [self slackPresence:userID];
     NSDictionary *jsonObj = [[NSDictionary alloc] initWithObjectsAndKeys:@"true", @"success",
                              presence, @"presence", nil];
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:jsonObj];
@@ -184,14 +183,12 @@ NSString *slackAccessToken;
 
     //[self.commandDelegate sendPluginResult:pluginResult callbackId: currentCallBackID];
     
-    
-    
 
 }
 
-- (NSString *)slackPresence
+- (NSString *)slackPresence:(NSString *)userID
 {
-    NSString *restCallString = [NSString stringWithFormat:@"%@/users.getPresence?token=%@&user=%@", slackAPIURL, slackAccessToken , @"U1234567890" ];
+    NSString *restCallString = [NSString stringWithFormat:@"%@/users.getPresence?token=%@&user=%@", slackAPIURL, slackAccessToken , userID ];
     
     NSString *responseString = [immCommonFunctions makeRestAPICall: restCallString];
     NSData* responseData = [responseString dataUsingEncoding:NSUTF8StringEncoding];

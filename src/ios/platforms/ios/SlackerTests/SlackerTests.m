@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "immCommonFunctions.h"
-
+#import "immSlackClient.h"
 
 @interface SlackerTests : XCTestCase
 
@@ -33,7 +33,14 @@
 
 -(void)testgetClientID {
     
+    
     XCTAssertNotNil([immCommonFunctions getClientID], @"Client ID is present");
+}
+
+-(void)testslackAuthenticate {
+    
+    immSlackClient *slackClient = [immSlackClient alloc];
+    XCTAssertNoThrow([slackClient slackAuthenticate], @"Client ID is present");
 }
 
 

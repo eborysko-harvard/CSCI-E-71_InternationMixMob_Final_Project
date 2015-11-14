@@ -37,6 +37,9 @@
     }
     return nil;
 }
+
+
+
 + (void) sendCordovaError:(NSString *)errorMessage
 {
 

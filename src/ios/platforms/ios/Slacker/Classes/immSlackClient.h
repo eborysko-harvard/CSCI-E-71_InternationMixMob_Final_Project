@@ -27,8 +27,7 @@
 
 - (void) slackAuthenticate;
 
-- (NSString *) slackPresence;
-
+- (NSString *) slackPresence:(NSString* ) userID;
 
 
 //-(void) slackLogout;
