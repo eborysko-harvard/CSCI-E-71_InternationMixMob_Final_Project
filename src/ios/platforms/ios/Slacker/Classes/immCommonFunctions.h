@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface immCommonFunctions : NSObject
+
+@interface immCommonFunctions : NSObject;
 
 + (NSString *) makeRestAPICall : (NSString*) reqURLStr;
+
++ (NSString*) getClientID;
+
++ (void) sendCordovaError: (NSString *) errorMessage;
 
 @end

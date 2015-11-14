@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -30,19 +33,14 @@ var app = {
         var btnSlackAuthenticate = document.getElementById('btnSlackAuthenticate');
         var btnCheckPresence = document.getElementById('btnCheckPresence');
         var deviceready = document.getElementById('deviceready');
-        btnSlackAuthenticate.addEventListener('click', function() {
-                                              cordova.exec( function callback(data){
-                                                           alert('test');
-                                                           }, function errorHandler(err)
-                                                           {
-                                                           alert(err);
-                                                           }, 'immSlackClient', 'cordovaSlackAuthenticate',[]);
+        btnSlackAuthenticate.addEventListener('click', function()
+                                              {
+                                                Slacker.authenticate();
                                               });
-        
         
         btnCheckPresence.addEventListener('click',function(){
                                           cordova.exec( function callback(data){
-                                                       alert('Presence');
+                                                        ''
                                                        }, function errorHandler(err)
                                                        {
                                                        alert(err);

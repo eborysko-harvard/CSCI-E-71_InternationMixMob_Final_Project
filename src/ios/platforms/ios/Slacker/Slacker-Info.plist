@@ -72,6 +72,16 @@
 				<string>slacker</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>slackClientID</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>10020492535.14066700832</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>0.0.1</string>

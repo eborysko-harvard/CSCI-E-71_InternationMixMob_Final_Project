@@ -20,4 +20,31 @@
     NSLog(@"%@",responseString);
     return responseString;
 }
+
++ (NSString*) getClientID {
+    NSArray* URLTypes = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
+    
+    if (URLTypes != nil) {
+        for (NSDictionary* dict in URLTypes) {
+            NSString *urlName = [dict objectForKey:@"CFBundleURLName"];
+            if ([urlName isEqualToString:@"slackClientID"]) {
+                NSArray* URLSchemes = [dict objectForKey:@"CFBundleURLSchemes"];
+                if (URLSchemes != nil) {
+                    return [URLSchemes objectAtIndex:0];
+                }
+            }
+        }
+    }
+    return nil;
+}
++ (void) sendCordovaError:(NSString *)errorMessage
+{
+
+ 
+  //  CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+  //                                                messageAsString:@"Unable to authenticate with Slack"];
+
+    
+    //[CDVPluginHandleOpenURLNotification commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ];
+}
 @end

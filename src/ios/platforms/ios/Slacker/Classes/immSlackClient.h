@@ -21,13 +21,15 @@
 
 //- (void) cordovaSlackLogout:(CDVInvokedUrlCommand *) command;
 
-
+- (void) getSlackAccessCode:(NSString* ) slackCode;
 
 #pragma mark - Slack_Utility
 
 - (void) slackAuthenticate;
 
 - (NSString *) slackPresence;
+
+
 
 //-(void) slackLogout;
 
