@@ -58,6 +58,7 @@ proguard/
 
 # Android Studio captures folder
 captures/
+.idea
 
 # Mac OS Files
 .DS_Store

@@ -1,0 +1,22 @@
+{
+    "name": "cordova-plugin-slack",
+    "cordova": {
+        "id": "cordova-plugin-slack",
+        "platforms": [
+            "ios",
+            "android"
+        ]
+    },
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=4.0.0"
+        }
+    ],
+    "scripts": {
+        "test": "jasmine-node --color spec"
+    },
+    "devDependencies": {
+        "jasmine-node": "1.14.5"
+    }
+}
