@@ -1,5 +1,6 @@
 # Slack Services plugin for Apache Cordova
 Final project for the group **International Mix Mob**
+[![Build Status](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project.svg)](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project) [![ReviewNinja](https://app.review.ninja/45349867/badge)](https://app.review.ninja/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
 
 ##Product Vision
 Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application. The plugin includes:
@@ -54,6 +55,9 @@ Alpana Barua
 ## Resources
 * [JIRA - Backlog and Sprint Boards](https://harvard-coursework.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=SKCP&view=planning.nodetail&selectedIssue=SKCP-14&epics=visible)
 * [Pointing Poker](https://www.pointingpoker.com/64137)
+* [Travis-CI Dashboard](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
+* [Bootstrap](http://getbootstrap.com/)
+* [jQuery](https://jquery.com/)
 
 ## Git workflow
 The idea is to follow a story branch pattern very similar to the one outlined [here](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html), with the main difference being that no interactive rebase is required to squash commits. The steps are thus as follows:
@@ -71,11 +75,10 @@ Rebase from master often to keep up to date with changes. Fix any merge conflict
 git fetch origin master
 git rebase origin/master
 ```
-When all work is done on this story, rebase with master once more. Then finally, merge the branch with master.
-```
-git checkout master
-git merge 80-git-workflow
-```
+When all work is done on this story, issue a [pull request](https://help.github.com/articles/using-pull-requests/) against master from your branch. This will initiate the CI builds, and allow others to review the pull requests prior to merging it to master.
+
+Once the CI builds pass, including all tests, and the code has been reviewed, you can merge the PR to master.
+
 When followed correctly, no merge conflicts should ever appear on the master branch.
 
 ## Preparing Development Environment
@@ -154,3 +157,17 @@ The source of this brief instruction list is the Cordova [Android Platform Guide
    * `$ cordova build`
 Optional - Install Github desktop from https://desktop.github.com/
 Optional - If you have multiple versions of node.js and need to switch between them using homebrew versions
+
+## Code Reviews
+Review Ninja has been added to Github. Directions coming soon.
+
+## Example CI Projects
+* [iOS Cordova](https://github.com/eborysko-harvard/Test_CI_iOS) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_iOS.svg?branch=master)](https://travis-ci.org/eborysko-harvard/Test_CI_iOS) [![Coverage Status](https://coveralls.io/repos/eborysko-harvard/Test_CI_iOS/badge.svg?branch=master&service=github)](https://coveralls.io/github/eborysko-harvard/Test_CI_iOS?branch=master)
+* [Android Cordova](https://github.com/eborysko-harvard/Test_CI_Android) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_Android.svg)](https://travis-ci.org/eborysko-harvard/Test_CI_Android)
+
+Example projects use NPM to get dependencies, run build, and run tests. After cloning, run the following commands:
+* <root of project>/npm i
+* <root of project>/npm test
+* <root of project>/npm run build
+
+I will enable more commands shortly. iOS project requires Mac OSX and Node 4.1.1 to function. Android build should run on OSX or Linux. If someone has a Windows environment to, please let me know.

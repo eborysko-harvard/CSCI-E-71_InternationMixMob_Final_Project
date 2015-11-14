@@ -60,5 +60,11 @@ proguard/
 captures/
 .idea
 
-# NPM
+# Mac OS Files
+.DS_Store
+
+# Node
 node_modules/
+
+# Swap
+*.swp
