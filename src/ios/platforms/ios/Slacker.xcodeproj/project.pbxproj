@@ -41,8 +41,27 @@
 		C647A2A71BF51F4C00569A1D /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C647A2A61BF51F4C00569A1D /* libCordova.a */; };
 		C647A2B01BF57B1300569A1D /* immCommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = C647A2AF1BF57B1300569A1D /* immCommonFunctions.m */; };
 		C69C581A1BF43FF1002ADF01 /* immSlackClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C69C58191BF43FF1002ADF01 /* immSlackClient.m */; };
+		C6A2F0EF1BF78BBF00899210 /* SlackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2F0EE1BF78BBF00899210 /* SlackerUITests.m */; };
+		C6A2F0FD1BF78CB600899210 /* SlackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2F0FC1BF78CB600899210 /* SlackerTests.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6A2F0F11BF78BBF00899210 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = Slacker;
+		};
+		C6A2F0FF1BF78CB600899210 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = Slacker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,6 +106,12 @@
 		C647A2AF1BF57B1300569A1D /* immCommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = immCommonFunctions.m; sourceTree = "<group>"; };
 		C69C58181BF43FF1002ADF01 /* immSlackClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = immSlackClient.h; sourceTree = "<group>"; };
 		C69C58191BF43FF1002ADF01 /* immSlackClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = immSlackClient.m; sourceTree = "<group>"; };
+		C6A2F0EC1BF78BBF00899210 /* SlackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A2F0EE1BF78BBF00899210 /* SlackerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlackerUITests.m; sourceTree = "<group>"; };
+		C6A2F0F01BF78BBF00899210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6A2F0FA1BF78CB600899210 /* SlackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A2F0FC1BF78CB600899210 /* SlackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlackerTests.m; sourceTree = "<group>"; };
+		C6A2F0FE1BF78CB600899210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
@@ -103,6 +128,20 @@
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6A2F0E91BF78BBF00899210 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6A2F0F71BF78CB600899210 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* Slacker.app */,
+				C6A2F0EC1BF78BBF00899210 /* SlackerUITests.xctest */,
+				C6A2F0FA1BF78CB600899210 /* SlackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +186,8 @@
 				307C750510C5A3420062BCA9 /* Plugins */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				C6A2F0ED1BF78BBF00899210 /* SlackerUITests */,
+				C6A2F0FB1BF78CB600899210 /* SlackerTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -230,6 +273,24 @@
 			path = splash;
 			sourceTree = "<group>";
 		};
+		C6A2F0ED1BF78BBF00899210 /* SlackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2F0EE1BF78BBF00899210 /* SlackerUITests.m */,
+				C6A2F0F01BF78BBF00899210 /* Info.plist */,
+			);
+			path = SlackerUITests;
+			sourceTree = "<group>";
+		};
+		C6A2F0FB1BF78CB600899210 /* SlackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2F0FC1BF78CB600899210 /* SlackerTests.m */,
+				C6A2F0FE1BF78CB600899210 /* Info.plist */,
+			);
+			path = SlackerTests;
+			sourceTree = "<group>";
+		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,13 +321,59 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* Slacker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C6A2F0EB1BF78BBF00899210 /* SlackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6A2F0F51BF78BBF00899210 /* Build configuration list for PBXNativeTarget "SlackerUITests" */;
+			buildPhases = (
+				C6A2F0E81BF78BBF00899210 /* Sources */,
+				C6A2F0E91BF78BBF00899210 /* Frameworks */,
+				C6A2F0EA1BF78BBF00899210 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6A2F0F21BF78BBF00899210 /* PBXTargetDependency */,
+			);
+			name = SlackerUITests;
+			productName = SlackerUITests;
+			productReference = C6A2F0EC1BF78BBF00899210 /* SlackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		C6A2F0F91BF78CB600899210 /* SlackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6A2F1011BF78CB600899210 /* Build configuration list for PBXNativeTarget "SlackerTests" */;
+			buildPhases = (
+				C6A2F0F61BF78CB600899210 /* Sources */,
+				C6A2F0F71BF78CB600899210 /* Frameworks */,
+				C6A2F0F81BF78CB600899210 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6A2F1001BF78CB600899210 /* PBXTargetDependency */,
+			);
+			name = SlackerTests;
+			productName = SlackerTests;
+			productReference = C6A2F0FA1BF78CB600899210 /* SlackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 510;
+				LastUpgradeCheck = 0710;
+				TargetAttributes = {
+					C6A2F0EB1BF78BBF00899210 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
+					};
+					C6A2F0F91BF78CB600899210 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Slacker" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -287,6 +394,8 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Slacker */,
+				C6A2F0EB1BF78BBF00899210 /* SlackerUITests */,
+				C6A2F0F91BF78CB600899210 /* SlackerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -325,6 +434,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C6A2F0EA1BF78BBF00899210 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6A2F0F81BF78CB600899210 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -358,7 +481,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C6A2F0E81BF78BBF00899210 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A2F0EF1BF78BBF00899210 /* SlackerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6A2F0F61BF78CB600899210 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A2F0FD1BF78CB600899210 /* SlackerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6A2F0F21BF78BBF00899210 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* Slacker */;
+			targetProxy = C6A2F0F11BF78BBF00899210 /* PBXContainerItemProxy */;
+		};
+		C6A2F1001BF78CB600899210 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* Slacker */;
+			targetProxy = C6A2F0FF1BF78CB600899210 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -432,6 +584,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
@@ -509,6 +662,140 @@
 			};
 			name = Release;
 		};
+		C6A2F0F31BF78BBF00899210 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = SlackerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.cscie71.imm.app.SlackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Slacker;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C6A2F0F41BF78BBF00899210 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = SlackerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.cscie71.imm.app.SlackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Slacker;
+				USES_XCTRUNNER = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6A2F1021BF78CB600899210 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = SlackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.cscie71.imm.app.SlackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slacker.app/Slacker";
+			};
+			name = Debug;
+		};
+		C6A2F1031BF78CB600899210 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = SlackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.cscie71.imm.app.SlackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slacker.app/Slacker";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -529,6 +816,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C6A2F0F51BF78BBF00899210 /* Build configuration list for PBXNativeTarget "SlackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6A2F0F31BF78BBF00899210 /* Debug */,
+				C6A2F0F41BF78BBF00899210 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C6A2F1011BF78CB600899210 /* Build configuration list for PBXNativeTarget "SlackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6A2F1021BF78CB600899210 /* Debug */,
+				C6A2F1031BF78CB600899210 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
