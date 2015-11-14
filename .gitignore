@@ -66,5 +66,8 @@ captures/
 # Node
 node_modules/
 
+# Istanbul
+coverage/
+
 # Swap
 *.swp
