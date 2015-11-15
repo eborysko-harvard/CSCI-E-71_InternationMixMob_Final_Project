@@ -29,7 +29,7 @@ script:
   - echo "Running tests"
   - npm test
   - echo "Starting build"
-  - npm run build-ios
+#  - npm run build-ios
 #  - cd TestCIiOS
 #  - cordova build ios
 
