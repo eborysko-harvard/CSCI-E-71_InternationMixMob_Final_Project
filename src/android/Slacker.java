@@ -1,11 +1,11 @@
-package edu.cscie71.imm.app.slacker;
+package edu.cscie71.imm.slacker.plugin;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class Slack extends CordovaPlugin {
+public class Slacker extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
