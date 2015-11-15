@@ -1,24 +1,31 @@
 {
-  "name": "cordova-plugin-slack",
+  "private" : true,
+  "name": "cordova-plugin-slacker",
+  "version" : "0.1.0",
+  "description": "Cordova Slack API plugin",
   "cordova": {
-    "id": "cordova-plugin-slack",
+    "id": "cordova-plugin-slacker",
     "platforms": [
       "ios",
       "android"
     ]
   },
-  "engines": [
-    {
-      "name": "cordova",
-      "version": ">=4.0.0"
-    }
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.git"
+  },
+  "engines": {
+     "node": ">=4.x.x",
+     "cordova" : ">=5.4.0"
+  },
   "scripts": {
-    "test": "istanbul cover jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+     "test": "istanbul cover jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+     "build" : "echo Do Nothing, Plugin is provided as source"
   },
   "devDependencies": {
     "coveralls": "^2.11.4",
     "istanbul": "^0.4.0",
-    "jasmine-node": "1.14.5"
+    "jasmine-node": "1.14.5",
+    "cordova": "5.4.0"
   }
 }
