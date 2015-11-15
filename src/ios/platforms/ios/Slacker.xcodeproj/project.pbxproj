@@ -61,20 +61,6 @@
 			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
 			remoteInfo = Slacker;
 		};
-		C6BBE5011BF7D34900D8D365 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C6BBE4FD1BF7D34900D8D365 /* CordovaLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 68A32D7114102E1C006B237C;
-			remoteInfo = CordovaLib;
-		};
-		C6BBE5031BF7D35500D8D365 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C6BBE4FD1BF7D34900D8D365 /* CordovaLib.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = CordovaLib;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -126,7 +112,6 @@
 		C6A2F0FC1BF78CB600899210 /* SlackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlackerTests.m; sourceTree = "<group>"; };
 		C6A2F0FE1BF78CB600899210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6BBE4FB1BF7D25000D8D365 /* libCordova.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCordova.a; path = "../../../../../Library/Developer/Xcode/DerivedData/CordovaLib-byrykngxnejxjofbnamopageaqrf/Build/Products/Debug-iphoneos/libCordova.a"; sourceTree = "<group>"; };
-		C6BBE4FD1BF7D34900D8D365 /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
@@ -193,7 +178,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				C6BBE4FD1BF7D34900D8D365 /* CordovaLib.xcodeproj */,
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
 				EB87FDF21871DA7A0020F90C /* merges */,
@@ -307,14 +291,6 @@
 			path = SlackerTests;
 			sourceTree = "<group>";
 		};
-		C6BBE4FE1BF7D34900D8D365 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C6BBE5021BF7D34900D8D365 /* libCordova.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,7 +315,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C6BBE5041BF7D35500D8D365 /* PBXTargetDependency */,
 			);
 			name = Slacker;
 			productName = Slacker;
@@ -416,12 +391,6 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C6BBE4FE1BF7D34900D8D365 /* Products */;
-					ProjectRef = C6BBE4FD1BF7D34900D8D365 /* CordovaLib.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Slacker */,
@@ -430,16 +399,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		C6BBE5021BF7D34900D8D365 /* libCordova.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCordova.a;
-			remoteRef = C6BBE5011BF7D34900D8D365 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -550,11 +509,6 @@
 			isa = PBXTargetDependency;
 			target = 1D6058900D05DD3D006BFB54 /* Slacker */;
 			targetProxy = C6A2F0FF1BF78CB600899210 /* PBXContainerItemProxy */;
-		};
-		C6BBE5041BF7D35500D8D365 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CordovaLib;
-			targetProxy = C6BBE5031BF7D35500D8D365 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

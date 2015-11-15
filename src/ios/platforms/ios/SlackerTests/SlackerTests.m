@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "immCommonFunctions.h"
 #import "immSlackClient.h"
+#import <Cordova/CDV.h>
 
 @interface SlackerTests : XCTestCase
 
@@ -40,7 +41,14 @@
 -(void)testslackAuthenticate {
     
     immSlackClient *slackClient = [immSlackClient alloc];
-    XCTAssertNoThrow([slackClient slackAuthenticate], @"Client ID is present");
+    XCTAssertNoThrow([slackClient slackAuthenticate], @"Slack authenticate works");
+}
+
+-(void)testcordovaSlackAuthenticate {
+    
+    immSlackClient *slackClient = [immSlackClient alloc];
+    CDVInvokedUrlCommand  *command = [CDVInvokedUrlCommand alloc];
+    XCTAssertNoThrow([slackClient cordovaSlackAuthenticate:command], @"Slack authenticate works");
 }
 
 

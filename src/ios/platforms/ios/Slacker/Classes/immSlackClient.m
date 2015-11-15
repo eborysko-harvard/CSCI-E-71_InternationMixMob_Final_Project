@@ -13,7 +13,6 @@
 //static void slackLoadMethod(Class class, SEL destinationSelector, SEL sourceSelector);
 
 const NSString *slackAPIURL = @"https://slack.com/api/";
-//static NSString *slackClientID = @"10020492535.14066700832"; // need to move to UI - supplied by user
 static NSString *slackClientSecret = @"75d676a163b2e485f8428a1b0d1f710c"; // move to UI - supplied by user
 NSString *slackClientID;
 NSString *currentCallBackID;
