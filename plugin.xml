@@ -19,7 +19,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Slack">
-        <param name="android-package" value="edu.cscie71.imm.slacker.plugin.SlackerPlugin"/>
+        <param name="android-package" value="edu.cscie71.imm.slacker.plugin.Slacker"/>
       </feature>
     </config-file>
     <source-file src="src/android/SlackerPlugin.java" target-dir="src/edu/cscie71/imm/slacker/plugin" />
