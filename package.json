@@ -1,0 +1,24 @@
+{
+  "name": "cordova-plugin-slack",
+  "cordova": {
+    "id": "cordova-plugin-slack",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=4.0.0"
+    }
+  ],
+  "scripts": {
+    "test": "istanbul cover jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.0",
+    "jasmine-node": "1.14.5"
+  }
+}
