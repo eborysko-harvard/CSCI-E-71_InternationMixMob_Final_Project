@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-slack" version="0.0.1">
-  <name>Slack</name>
+<!-- 
+  TODO: Setup Slack API URL whitelist
+-->
+  <name>Slacker</name>
+  <description>A Slack API plugin</description>
+  <license>MIT</license>
+  <keywords>slack</keywords>
+  <repo>https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.git</repo>
+  <engines>
+        <engine name="cordova" version=">=5.0.0" />
+  </engines>
   <js-module src="www/slack.js" name="slack">
     <clobbers target="slack" />
   </js-module>
@@ -9,10 +19,33 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Slack">
-        <param name="android-package" value="edu.cscie71.imm.app.slacker.client.Slack"/>
+        <param name="android-package" value="edu.cscie71.imm.slacker.plugin.Slacker"/>
       </feature>
     </config-file>
-    <source-file src="src/android/Slack.java" target-dir="src/edu/cscie71/imm/app/slacker/Slack" />
+    <source-file src="src/android/Slacker.java" target-dir="src/edu/cscie71/imm/slacker/plugin" />
+    <!--
+      Placeholder for our client jar
+    <lib-file src="src/android/libs/XXXXX.jar" />
+    -->
+  </platform>
+
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="Slack">
+         <param name="ios-package" value="IMMSlacker" />
+      </feature>
+    </config-file>
+    <!-- 
+      Placeholder for resources
+      <resource-file src="CDVFoo.bundle" />
+      <resource-file src="CDVFooViewController.xib" />
+    -->
+    <header-file src="src/ios/IMMSlacker.h" />
+    <source-file src="src/ios/IMMSlacker.m"/>
+    <!--
+      Placeholder for our client lib
+    <source-file src="src/ios/IMMSlackerClient.a" framework="true" />
+    -->
   </platform>
 
 </plugin>
