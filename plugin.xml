@@ -22,7 +22,7 @@
         <param name="android-package" value="edu.cscie71.imm.slacker.plugin.Slacker"/>
       </feature>
     </config-file>
-    <source-file src="src/android/SlackerPlugin.java" target-dir="src/edu/cscie71/imm/slacker/plugin" />
+    <source-file src="src/android/Slacker.java" target-dir="src/edu/cscie71/imm/slacker/plugin" />
     <!--
       Placeholder for our client jar
     <lib-file src="src/android/libs/XXXXX.jar" />
