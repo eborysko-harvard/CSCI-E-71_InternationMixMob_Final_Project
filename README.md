@@ -204,4 +204,23 @@ Example projects use NPM to get dependencies, run build, and run tests. After cl
 * <root of project>/npm test
 * <root of project>/npm run build
 
-I will enable more commands shortly. iOS project requires Mac OSX and Node 4.1.1 to function. Android build should run on OSX or Linux. If someone has a Windows environment to, please let me know.
+I will enable more commands shortly. iOS project requires Mac OSX and Node 4.1.1 to function. Android build should run on OSX or Linux. If someone has a Windows environment to, please let me know. 
+
+## Sprint Retrospective
+First Retro Nov 16
+
+* Good/Continue doing:
+   * `Impressive lineup of tools`
+   * `Great documentation of all the various procesess and tools`
+   * `Review Ninja is awesome: should use it`
+
+* Start doing:
+   * `Focus on minimum viable`
+   * `More mob/pair sessions`
+   * `Schedule pair/mob sessions on Calendar so people can join`
+   * `More & consistant commitment from team members`
+
+* Stop doing:
+   * `Long term goals/experimentation`
+
+
