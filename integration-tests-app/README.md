@@ -1,0 +1,1 @@
+Execute `$ cordova prepare`, then `$ cordova run android|ios`

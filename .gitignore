@@ -58,12 +58,16 @@ proguard/
 
 # Android Studio captures folder
 captures/
+.idea
 
 # Mac OS Files
 .DS_Store
 
 # Node
 node_modules/
+
+# Istanbul
+coverage/
 
 # Swap
 *.swp

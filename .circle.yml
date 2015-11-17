@@ -1,0 +1,13 @@
+machine:
+  environment:
+    ANDROID_NDK_HOME: $ANDROID_NDK
+    NODE_ENV: test
+    PATH: $PATH:$HOME/$CIRCLE_PROJECT_REPONAME/node_modules/.bin
+dependencies:
+  override:
+    - npm install
+test:
+  override:
+    - npm test
+    - npm run build-android
+
