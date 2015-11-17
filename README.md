@@ -1,19 +1,6 @@
 # Slack Services plugin for Apache Cordova
 Final project for the group **International Mix Mob**
-
-### Slacker Client
-* [Objective-C](https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS) [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS) [![ReviewNinja](https://app.review.ninja/45960688/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS/badge.svg?branch=master&service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS?branch=master)
-* [Java](https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android) [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master) [![ReviewNinja](https://app.review.ninja/45960726/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/badge.svg?branch=master&service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android?branch=master)
-
-### Slacker Cordova Plugin  [![ReviewNinja](https://app.review.ninja/45349867/badge)](https://app.review.ninja/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/badge.svg?service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin?)
-
-* iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin)
-* Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master)
-
-### [Slacker Plugin Reference Application](https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App) [![ReviewNinja](https://app.review.ninja/45960788/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App/badge.svg?branch=master&service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App?branch=master)
-* iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
-* Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
-
+[![Build Status](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project.svg)](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project) [![ReviewNinja](https://app.review.ninja/45349867/badge)](https://app.review.ninja/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
 
 ##Product Vision
 Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application. The plugin includes:
@@ -66,30 +53,9 @@ Alpana Barua
 * **Product Owner** - needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.
 
 ## Resources
-### Project / Agile Tools
 * [JIRA - Backlog and Sprint Boards](https://harvard-coursework.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=SKCP&view=planning.nodetail&selectedIssue=SKCP-14&epics=visible)
 * [Pointing Poker](https://www.pointingpoker.com/64137)
-* [Travis-CI Dashboard](https://travis-ci.org/InternationalMixMob/)
-* [Circle-CI Dasboard](https://circleci.com/gh/InternationalMixMob)
-* [Coveralls](https://coveralls.io/repos)
-* [Review Ninja](https://app.review.ninja/)
-* Hockey App
-
-### Development Tools
-* [Cordova](https://cordova.apache.org/)
-* [Slack API](https://api.slack.com/)
-* [Gradle](https://gradle.org/)
-* [Maven](https://maven.apache.org/)
-* [NPM](https://www.npmjs.com/)
-* [Junit](http://junit.org/)
-* [Istanbul-JS](https://gotwarlost.github.io/istanbul/)
-* [Jasmine](http://jasmine.github.io/)
-* [XCTest](https://developer.apple.com/library/tvos/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/03-testing_basics.html)
-* [Cucumber](https://cucumber.io/)
-* [Mockito](http://mockito.org/)
-* [OCMockito](https://github.com/jonreid/OCMockito)
-* Open Sauce
-* [Ionic Framework](http://ionicframework.com/)
+* [Travis-CI Dashboard](https://travis-ci.org/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project)
 * [Bootstrap](http://getbootstrap.com/)
 * [jQuery](https://jquery.com/)
 
@@ -196,8 +162,8 @@ Optional - If you have multiple versions of node.js and need to switch between t
 Review Ninja has been added to Github. Directions coming soon.
 
 ## Example CI Projects
-* [iOS Cordova](https://github.com/InternationalMixMob/Test_CI_iOS) 
-* [Android Cordova](https://github.com/InternationalMixMob/Test_CI_Android)
+* [iOS Cordova](https://github.com/eborysko-harvard/Test_CI_iOS) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_iOS.svg?branch=master)](https://travis-ci.org/eborysko-harvard/Test_CI_iOS) [![Coverage Status](https://coveralls.io/repos/eborysko-harvard/Test_CI_iOS/badge.svg?branch=master&service=github)](https://coveralls.io/github/eborysko-harvard/Test_CI_iOS?branch=master)
+* [Android Cordova](https://github.com/eborysko-harvard/Test_CI_Android) [![Build Status](https://travis-ci.org/eborysko-harvard/Test_CI_Android.svg)](https://travis-ci.org/eborysko-harvard/Test_CI_Android)
 
 Example projects use NPM to get dependencies, run build, and run tests. After cloning, run the following commands:
 * <root of project>/npm i
@@ -205,3 +171,24 @@ Example projects use NPM to get dependencies, run build, and run tests. After cl
 * <root of project>/npm run build
 
 I will enable more commands shortly. iOS project requires Mac OSX and Node 4.1.1 to function. Android build should run on OSX or Linux. If someone has a Windows environment to, please let me know.
+
+## Sprint Retrospective
+Retrospective for Sprint 1 - Nov 16
+
+* Good/Continue doing:
+   * `Impressive lineup of tools`
+   * `Great documentation of all the various procesess and tools`
+   * `Review Ninja is awesome: should use it`
+
+* Start doing:
+   * `Focus on minimum viable`
+   * `More mob/pair sessions`
+   * `Schedule pair/mob sessions on Calendar so people can join`
+   * `More & consistant commitment from team members`
+
+* Stop doing:
+   * `Long term goals/experimentation`
+
+
+   
+
