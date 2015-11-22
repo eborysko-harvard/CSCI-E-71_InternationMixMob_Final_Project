@@ -12,8 +12,8 @@
   <engines>
         <engine name="cordova" version=">=5.0.0" />
   </engines>
-  <js-module src="www/slack.js" name="slack">
-    <clobbers target="slack" />
+  <js-module src="www/slacker.js" name="Slacker">
+    <clobbers target="Slacker" />
   </js-module>
 
   <platform name="android">

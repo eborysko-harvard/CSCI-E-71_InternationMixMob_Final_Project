@@ -1,12 +1,18 @@
 var exec = cordova.require('cordova/exec');
 
-function Slacker(options) {
+var Slacker = function (options) {
 
-}
+};
 
 Slacker.prototype.postMessage = function (successCallback, errorCallback, message) {
-  if (successCallback == null) { successCallback = function() {}}
-  if (errorCallback == null) { errorCallback = function() {}}
+  if (successCallback == null) {
+    successCallback = function () {
+    }
+  }
+  if (errorCallback == null) {
+    errorCallback = function () {
+    }
+  }
   exec(successCallback, errorCallback, 'Slack', 'postMessage' [message]);
 };
 
