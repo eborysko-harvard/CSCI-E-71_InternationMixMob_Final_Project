@@ -3,7 +3,7 @@
  */
 
 var cordova = require('./helper/cordova'),
-  Slacker = require('../www/slack'),
+  Slacker = require('../www/slacker'),
   execSpy,
   execWin,
   options;
