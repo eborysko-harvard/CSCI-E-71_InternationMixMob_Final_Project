@@ -3,7 +3,7 @@
  */
 
 var cordova = require('./helper/cordova'),
-  Slack = require('../www/slack'),
+  Slacker = require('../www/slack'),
   execSpy,
   execWin,
   options;
@@ -12,17 +12,17 @@ var cordova = require('./helper/cordova'),
  * Specification.
  */
 
-describe('cordova-plugin-slack', function () {
+describe('cordova-plugin-slacker', function () {
   beforeEach(function () {
     options = {android: {}, ios: {}};
     execWin = jasmine.createSpy();
     execSpy = spyOn(cordova.required, 'cordova/exec').andCallFake(execWin);
   });
 
-  describe('Slack', function () {
+  describe('Slacker', function () {
     it("should exist", function () {
-      expect(Slack).toBeDefined();
-      expect(typeof Slack == 'object').toBe(true);
+      expect(Slacker).toBeDefined();
+      expect(typeof Slacker == 'object').toBe(true);
     });
   });
 });

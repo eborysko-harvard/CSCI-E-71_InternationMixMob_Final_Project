@@ -9,15 +9,14 @@ public class Slacker extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("coolMethod")) {
+        if (action.equals("postMessage")) {
             String message = args.getString(0);
-            this.coolMethod(message, callbackContext);
-            return true;
+            this.postMessage(message, callbackContext);
         }
         return false;
     }
 
-    private void coolMethod(String message, CallbackContext callbackContext) {
+    private void postMessage(String message, CallbackContext callbackContext) {
         if (message != null && message.length() > 0) {
             callbackContext.success(message);
         } else {
