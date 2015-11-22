@@ -24,5 +24,9 @@ describe('cordova-plugin-slacker', function () {
       expect(Slacker).toBeDefined();
       expect(typeof Slacker == 'object').toBe(true);
     });
+
+    xit('should post message', function () {
+
+    })
   });
 });

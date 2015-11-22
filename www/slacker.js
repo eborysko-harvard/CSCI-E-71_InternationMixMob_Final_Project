@@ -4,22 +4,24 @@ var Slacker = function (options) {
 
 };
 
-Slacker.prototype.postMessage = function (successCallback, errorCallback, message) {
-  if (successCallback == null) {
-    successCallback = function () {
-    }
-  }
-  if (errorCallback == null) {
-    errorCallback = function () {
-    }
-  }
-  exec(successCallback, errorCallback, 'Slack', 'postMessage' [message]);
-};
-
 module.exports = {
 
   init: function (options) {
     return new Slacker(options);
+  },
+
+  postMessage: function (successCallback, errorCallback, message) {
+    if (successCallback == null) {
+      successCallback = function () {
+        console.log('postMessage success');
+      }
+    }
+    if (errorCallback == null) {
+      errorCallback = function () {
+        console.error('postMessage error');
+      }
+    }
+    exec(successCallback, errorCallback, 'Slacker', 'postMessage', [message]);
   },
 
   /**

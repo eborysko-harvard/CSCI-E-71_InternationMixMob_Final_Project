@@ -18,7 +18,7 @@
 
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="Slack">
+      <feature name="Slacker">
         <param name="android-package" value="edu.cscie71.imm.slacker.plugin.Slacker"/>
       </feature>
     </config-file>
@@ -31,7 +31,7 @@
 
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
-      <feature name="Slack">
+      <feature name="Slacker">
          <param name="ios-package" value="IMMSlacker" />
       </feature>
     </config-file>
