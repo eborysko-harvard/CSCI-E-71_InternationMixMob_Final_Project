@@ -8,14 +8,16 @@ exports.defineAutoTests = function () {
       expect(typeof Slacker.init == 'function').toBe(true);
     });
 
-    it('can post messages', function () {
+    it('can post messages', function (done) {
       var returnMsg = '';
       var success = function (message) {
         returnMsg = message;
       };
+      setTimeout(function () {
+        expect(returnMsg).toBe('message test');
+        done();
+      }, 100);
       Slacker.postMessage(success, null, 'message test');
-      //expect(returnMsg).toBe('message test');
-      expect(1).toBe(1);
     });
   });
 };

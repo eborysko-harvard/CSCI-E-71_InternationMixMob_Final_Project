@@ -13,12 +13,10 @@ module.exports = {
   postMessage: function (successCallback, errorCallback, message) {
     if (successCallback == null) {
       successCallback = function () {
-        console.log('postMessage success');
       }
     }
     if (errorCallback == null) {
       errorCallback = function () {
-        console.error('postMessage error');
       }
     }
     exec(successCallback, errorCallback, 'Slacker', 'postMessage', [message]);
