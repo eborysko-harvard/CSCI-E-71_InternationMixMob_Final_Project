@@ -3,7 +3,7 @@
 
 @implementation IMMSlacker
 
-    - (void)coolMessage:(CDVInvokedUrlCommand*)command
+    - (void)postMessage:(CDVInvokedUrlCommand*)command
     {
         CDVPluginResult* pluginResult = nil;
         NSString* echo = [command.arguments objectAtIndex:0];
