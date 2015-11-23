@@ -19,7 +19,7 @@
      "cordova" : ">=5.4.0"
   },
   "scripts": {
-     "test": "jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+     "test": "istanbul cover jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
      "build" : "echo Do Nothing, Plugin is provided as source"
   },
   "devDependencies": {
