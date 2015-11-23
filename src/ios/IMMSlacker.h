@@ -2,6 +2,6 @@
 
 @interface IMMSlacker : CDVPlugin
 
-    - (void)coolMessage:(CDVInvokedUrlCommand*)command;
+    - (void)postMessage:(CDVInvokedUrlCommand*)command;
 
 @end
