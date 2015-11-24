@@ -6,7 +6,7 @@
 //static void slackLoadMethod(Class class, SEL destinationSelector, SEL sourceSelector);
 
 const NSString *slackAPIURL = @"https://slack.com/api/";
-static NSString *slackClientSecret = @"75d676a163b2e485f8428a1b0d1f710c"; // move to UI - supplied by user
+NSString *slackClientSecret;
 NSString *slackClientID;
 NSString *currentCallBackID;
 
@@ -39,16 +39,17 @@ NSString *slackAccessToken;
         if([codeParam count] == 0)
         {
             // Need to send error to UI here.
-            return [self application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-            //  CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-            //                                                    messageAsString:@"Unable to authenticate with Slack"];
-            //[self.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ];
+            //return [self application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+              CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                                                messageAsString:@"Unable to authenticate with Slack"];
+            CDVPlugin *plugin = [CDVPlugin alloc];
+            [plugin.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ];
         }
         else
         {
             NSString *codeQuery = [codeParam objectAtIndex:0];
             NSString *code = [codeQuery stringByReplacingOccurrencesOfString:@"code=" withString:@""];
-//            IMMSlacker *immSlacker = [immSlacker init];
+            //            IMMSlacker *immSlacker = [immSlacker init];
             [self getSlackAccessCode:code];
         }
         
@@ -57,7 +58,7 @@ NSString *slackAccessToken;
         
     }
     
-
+    
     return YES;
     
 }
@@ -68,7 +69,7 @@ NSString *slackAccessToken;
     //NSURLConnection *slackConnection;
     if(!slackClientID)
     {
-        slackClientID = [IMMSlacker getClientID];
+        slackClientID = [IMMSlacker getStoredCodes:@"SlackClientID"];
     }
     
     if(!slackCode)
@@ -76,11 +77,16 @@ NSString *slackAccessToken;
         //Send Error to client ?
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
                                                           messageAsString:@"Unable to authenticate with Slack"];
- //       [self.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ];
+        CDVPlugin *plugin = [CDVPlugin alloc];
+               [plugin.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ];
         return;
     }
     
     // Create the REST call string.
+    if(!slackClientSecret)
+    {
+        slackClientSecret = [IMMSlacker getStoredCodes:@"SlackClientSecret"];
+    }
     NSString *restCallString = [NSString stringWithFormat:@"%@/oauth.access?client_id=%@&client_secret=%@&code=%@", slackAPIURL , slackClientID , slackClientSecret , slackCode ];
     
     
@@ -105,7 +111,7 @@ NSString *slackAccessToken;
                              slackAccessToken, @"accessToken", nil];
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
                                                   messageAsDictionary:jsonObj];
- //   [self.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ]; //This callback is not working
+    //   [self.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ]; //This callback is not working
     
 }
 
@@ -130,11 +136,11 @@ NSString *slackAccessToken;
 }
 
 
-- (void) cordovaSlackAuthenticate:(CDVInvokedUrlCommand *)command
+- (void) slackAuthenticate:(CDVInvokedUrlCommand *)command
 {
     
     currentCallBackID = command.callbackId;
-    slackClientID =[IMMSlacker getClientID];
+    slackClientID =[IMMSlacker getStoredCodes:@"SlackClientID" ];
     
     if(!slackClientID)
     {
@@ -143,32 +149,6 @@ NSString *slackAccessToken;
         [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
         return;
     }
-    
-    [self slackAuthenticate];
-    
-    
-}
-
-- (void) cordovaSlackPresence:(CDVInvokedUrlCommand *)command
-{
-    NSString* userID = [command.arguments objectAtIndex:0];
-    
-    
-    NSString *presence = [self slackPresence:userID];
-    NSDictionary *jsonObj = [[NSDictionary alloc] initWithObjectsAndKeys:@"true", @"success",
-                             presence, @"presence", nil];
-    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:jsonObj];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
-
-
-
-
-#pragma mark - Slack_Utility
-
--(void)slackAuthenticate
-{
     
     NSString *slackAPIURL = [NSString  stringWithFormat:@"https://slack.com/oauth/authorize?client_id=%@&scope=read", slackClientID];
     NSURLRequest *slackRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:slackAPIURL]];
@@ -190,8 +170,10 @@ NSString *slackAccessToken;
     
 }
 
-- (NSString *)slackPresence:(NSString *)userID
+- (void) checkPresence:(CDVInvokedUrlCommand *)command
 {
+    NSString* userID = [command.arguments objectAtIndex:0];
+   
     NSString *restCallString = [NSString stringWithFormat:@"%@/users.getPresence?token=%@&user=%@", slackAPIURL, slackAccessToken , userID ];
     
     NSString *responseString = [IMMSlacker makeRestAPICall: restCallString];
@@ -199,9 +181,16 @@ NSString *slackAccessToken;
     
     NSDictionary *jsonArray=[NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
     
-    return  [jsonArray objectForKey:@"presence"];
-    
+    NSDictionary *jsonObj = [[NSDictionary alloc] initWithObjectsAndKeys:@"true", @"success",
+                             [jsonArray objectForKey:@"presence"], @"presence", nil];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:jsonObj];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
+
+
+
+#pragma mark - Slack_Utility
+
 
 + (NSString *) makeRestAPICall : (NSString*) reqURLStr
 {
@@ -214,13 +203,13 @@ NSString *slackAccessToken;
     return responseString;
 }
 
-+ (NSString*) getClientID {
++ (NSString*) getStoredCodes : (NSString* ) key {
     NSArray* URLTypes = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
     
     if (URLTypes != nil) {
         for (NSDictionary* dict in URLTypes) {
             NSString *urlName = [dict objectForKey:@"CFBundleURLName"];
-            if ([urlName isEqualToString:@"slackClientID"]) {
+            if ([urlName isEqualToString:key]) {
                 NSArray* URLSchemes = [dict objectForKey:@"CFBundleURLSchemes"];
                 if (URLSchemes != nil) {
                     return [URLSchemes objectAtIndex:0];
