@@ -4,6 +4,8 @@ var Slacker = function (options) {
 
 };
 
+var pluginName = "Slacker";
+
 module.exports = {
 
   init: function (options) {
@@ -19,8 +21,29 @@ module.exports = {
       errorCallback = function () {
       }
     }
-    exec(successCallback, errorCallback, 'Slacker', 'postMessage', [message]);
+    exec(successCallback, errorCallback, pluginName, 'postMessage', [message]);
   },
+  
+  
+
+var Slacker = function () {};
+Slacker.authenticate = function() {
+    cordova.exec(function callback(data){
+                 ''
+                 },function errorHandler(err){
+                 ''
+                 },pluginName, 'authenticate', []);
+}
+
+Slacker.presence = function(userid) {
+    cordova.exec(function callback(data){
+                 ''
+                 },function errorHandler(err){
+                 ''
+                 },pluginName, 'checkPresence', [userid]);
+},
+
+
 
   /**
    * Slacker object
