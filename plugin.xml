@@ -42,6 +42,53 @@
     -->
     <header-file src="src/ios/IMMSlacker.h" />
     <source-file src="src/ios/IMMSlacker.m"/>
+    
+    <preference name="SLACK_CLIENT_ID"/>
+    <preference name="SLACK_CLIENT_SECRET"/>
+    
+    <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLName</key>
+                <string>$PACKAGE_NAME</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>slacker</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLName</key>
+                <string>SlackClientID</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>$SLACK_CLIENT_ID</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLName</key>
+                <string>SlackClientSecret</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>$SLACK_CLIENT_SECRET</string>
+                </array>
+            </dict>
+        </array>
+    </config-file>
+    
+    <!-- iOS9 whitelisting
+    <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+        <array>
+            <string>$PACKAGE_NAME</string>
+            <string>$SlackClientID</string>
+        </array>
+    </config-file>-->
+    
     <!--
       Placeholder for our client lib
     <source-file src="src/ios/IMMSlackerClient.a" framework="true" />
