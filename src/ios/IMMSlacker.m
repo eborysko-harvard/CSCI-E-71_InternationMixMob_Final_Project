@@ -40,8 +40,8 @@ NSString *slackAccessToken;
         {
             // Need to send error to UI here.
             //return [self application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-              CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-                                                                messageAsString:@"Unable to authenticate with Slack"];
+            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                                              messageAsString:@"Unable to authenticate with Slack"];
             CDVPlugin *plugin = [CDVPlugin alloc];
             [plugin.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ];
         }
@@ -155,9 +155,8 @@ NSString *slackAccessToken;
 {
     
     currentCallBackID = command.callbackId;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    slackAccessToken = [defaults objectForKey:@"SlackAccessToken"];
-    if(!slackAccessToken)
+    
+    if(![self checkTokenValidity])
     {
         slackClientID =[IMMSlacker getStoredCodes:@"SlackClientID" ];
         
@@ -206,6 +205,29 @@ NSString *slackAccessToken;
                              [jsonArray objectForKey:@"presence"], @"presence", nil];
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:jsonObj];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (BOOL) checkTokenValidity
+{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    slackAccessToken = [defaults objectForKey:@"SlackAccessToken"];
+    
+    if (slackAccessToken) {
+        
+        NSString *restCallString = [NSString stringWithFormat:@"%@/auth.test?token=%@", slackAPIURL, slackAccessToken];
+        
+        NSString *responseString = [IMMSlacker makeRestAPICall: restCallString];
+        NSData* responseData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSDictionary *jsonArray=[NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
+        return [jsonArray objectForKey:@"ok"];
+    }
+    
+    return NO;
+    
+    
+    
 }
 
 

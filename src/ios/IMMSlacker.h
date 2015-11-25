@@ -16,6 +16,8 @@
 
 - (void) checkPresence:(CDVInvokedUrlCommand *) command;
 
+- (BOOL) checkTokenValidity;
+
 //- (void) cordovaSlackLogout:(CDVInvokedUrlCommand *) command;
 
 //- (void) getSlackAccessCode:(NSString* ) slackCode;
