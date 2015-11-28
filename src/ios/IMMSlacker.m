@@ -185,16 +185,6 @@ NSString *slackAccessToken;
 
 #pragma mark - Slack_Utility
 
-+ (NSString *) makeRestAPICall : (NSString*) reqURL
-{
-    NSURLRequest *Request = [NSURLRequest requestWithURL:[NSURL URLWithString: reqURL]];
-    NSURLResponse *resp = nil;
-    NSError *error = nil;
-    NSData *response = [NSURLConnection sendSynchronousRequest: Request returningResponse: &resp error: &error];
-    NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",responseString);
-    return responseString;
-}
 
 
 + (NSString*) getStoredCodes : (NSString* ) key {

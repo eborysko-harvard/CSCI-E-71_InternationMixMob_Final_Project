@@ -29,7 +29,6 @@
 #pragma mark - Slack_Utility
 
 
-+ (NSString *) makeRestAPICall : (NSString*) reqURLStr;
 
 + (NSString*) getStoredCodes : (NSString* ) key;
 
