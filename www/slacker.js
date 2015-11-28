@@ -24,12 +24,16 @@ postMessage: function (successCallback, errorCallback, message) {
     exec(successCallback, errorCallback, pluginName, 'postMessage', [message]);
 },
     
-authenticate: function() {
-    exec(function callback(data){
-         ''
-         },function errorHandler(err){
-         ''
-         },pluginName, 'slackAuthenticate', []);
+authenticate: function(successCallback,errorCallback,options) {
+               if (successCallback == null) {
+               successCallback = function () {
+               }
+               }
+               if (errorCallback == null) {
+               errorCallback = function () {
+               }
+               }
+    exec(successCallback,errorCallback,pluginName, 'slackAuthenticate', [options]);
 },
     
 presence: function(successCallback, errorCallback, message) {

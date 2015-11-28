@@ -1,5 +1,7 @@
 #import <Cordova/CDV.h>
 
+
+
 @interface IMMSlacker : CDVPlugin
 
 
@@ -7,6 +9,8 @@
 @property (nonatomic, copy) NSString* slackClientID;
 @property (nonatomic, assign) BOOL isSigningIn;
 @property (nonatomic, assign) NSString* slackClientSecret;
+@property (nonatomic, retain) NSString* currentCommandID;
+@property (nonatomic, retain) NSString* loggedinUserName;
 
 
 - (void)postMessage:(CDVInvokedUrlCommand*)command;
@@ -16,11 +20,11 @@
 
 - (void) checkPresence:(CDVInvokedUrlCommand *) command;
 
-- (BOOL) checkTokenValidity;
+
+- (void) getSlackAccessCode:(NSString *) slackCode;
 
 //- (void) cordovaSlackLogout:(CDVInvokedUrlCommand *) command;
 
-//- (void) getSlackAccessCode:(NSString* ) slackCode;
 
 #pragma mark - Slack_Utility
 
@@ -29,7 +33,5 @@
 
 + (NSString*) getStoredCodes : (NSString* ) key;
 
-
-//-(void) slackLogout;
 
 @end

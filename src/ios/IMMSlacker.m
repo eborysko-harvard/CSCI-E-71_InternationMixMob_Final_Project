@@ -1,14 +1,15 @@
 #import "IMMSlacker.h"
 #import "AppDelegate.h"
 #import <Cordova/CDV.h>
+#import <IMMSlackerClient/IMMSlackerClient.h>
 
-
-//static void slackLoadMethod(Class class, SEL destinationSelector, SEL sourceSelector);
-
-const NSString *slackAPIURL = @"https://slack.com/api/";
 NSString *slackClientSecret;
 NSString *slackClientID;
+id<CDVCommandDelegate> retainCommand;
 NSString *currentCallBackID;
+
+
+
 
 
 NSString *slackAccessToken;
@@ -22,6 +23,8 @@ NSString *slackAccessToken;
          annotation: (id)annotation {
     // call super
     
+    
+    //This should match the client scheme not slacker scheme
     if([url.scheme isEqualToString:@"slacker"]){
         
         //unload the authentication page if loaded.
@@ -32,29 +35,26 @@ NSString *slackAccessToken;
             }
         }
         
-        
         NSArray *queryParams = [[url query] componentsSeparatedByString:@"&"];
         NSArray *codeParam = [queryParams filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF BEGINSWITH %@", @"code="]];
         
         if([codeParam count] == 0)
         {
             // Need to send error to UI here.
-            //return [self application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+            
+            CDVPluginResult *pluginResult = [CDVPluginResult  resultWithStatus:CDVCommandStatus_ERROR
                                                               messageAsString:@"Unable to authenticate with Slack"];
-            CDVPlugin *plugin = [CDVPlugin alloc];
-            [plugin.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ];
+            [retainCommand sendPluginResult:pluginResult callbackId:currentCallBackID ];
+            return  NO;
+            //return [self application:application handleOpenURL:url];
         }
         else
         {
             NSString *codeQuery = [codeParam objectAtIndex:0];
             NSString *code = [codeQuery stringByReplacingOccurrencesOfString:@"code=" withString:@""];
-            //            IMMSlacker *immSlacker = [immSlacker init];
-            [self getSlackAccessCode:code];
+            IMMSlacker *immSlacker = [IMMSlacker alloc];
+            [immSlacker getSlackAccessCode:code];
         }
-        
-        
-        
         
     }
     
@@ -63,40 +63,36 @@ NSString *slackAccessToken;
     
 }
 
+
+
+
+@end
+
+@implementation IMMSlacker
+
+@synthesize loggedinUserName;
+
+
 - (void) getSlackAccessCode:(NSString *) slackCode
 {
     
     @try {
         
-        if(!slackClientID)
-        {
-            slackClientID = [IMMSlacker getStoredCodes:@"SlackClientID"];
-        }
+        IMMSlackerClient *immSlackerClient = [IMMSlackerClient alloc];
         
-        if(!slackCode)
+
+        immSlackerClient.SlackClientID = [IMMSlacker getStoredCodes:@"SlackClientID"];
+        
+        NSString *slackAccessCode = [immSlackerClient getSlackAccessCode:slackCode  ];
+        
+        if(!slackAccessCode)
         {
             //Send Error to client ?
             CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
                                                               messageAsString:@"Unable to authenticate with Slack"];
-            CDVPlugin *plugin = [CDVPlugin alloc];
-            [plugin.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ];
+            [retainCommand sendPluginResult:pluginResult callbackId:currentCallBackID];
             return;
         }
-        
-        // Create the REST call string.
-        if(!slackClientSecret)
-        {
-            slackClientSecret = [IMMSlacker getStoredCodes:@"SlackClientSecret"];
-        }
-        NSString *restCallString = [NSString stringWithFormat:@"%@/oauth.access?client_id=%@&client_secret=%@&code=%@", slackAPIURL , slackClientID , slackClientSecret , slackCode ];
-        
-        
-        NSString *responseString = [IMMSlacker makeRestAPICall: restCallString];
-        NSData* responseData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
-        
-        NSDictionary *jsonArray=[NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
-        slackAccessToken = [jsonArray objectForKey:@"access_token"];
-        
         
         //store the access token
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -104,37 +100,23 @@ NSString *slackAccessToken;
         
         [defaults synchronize];
         
-        //slackConnection = [[NSURLConnection alloc]   initWithRequest:restRequest delegate:self];
-        
-        //This should be stub code. Need to figure how to move this one
-        
-        //  AppDelegate *slackAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-        
-        // NSString *slackNavigatePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"www"];
-        // [slackAppDelegate.viewController.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:slackNavigatePath]]];
         
         NSDictionary *jsonObj = [ [NSDictionary alloc]  initWithObjectsAndKeys: @"true", @"success",
-                                 slackAccessToken, @"accessToken", nil];
+                                 self.loggedinUserName, @"username",nil];
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
                                                       messageAsDictionary:jsonObj];
-        //   [self.commandDelegate sendPluginResult:pluginResult callbackId:currentCallBackID ]; //This callback is not working
+        [retainCommand sendPluginResult:pluginResult callbackId:currentCallBackID ];
         
     }
     @catch (NSException *exception) {
         
-        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-                                                          messageAsString:@"Error authenticating with Slack"];
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error authenticating with Slack"];
+       // NSLog(exception.description);
+        [retainCommand sendPluginResult:pluginResult callbackId:currentCallBackID ];
     }
     
     
 }
-
-
-@end
-
-@implementation IMMSlacker
-
 
 - (void)postMessage:(CDVInvokedUrlCommand*)command
 {
@@ -154,37 +136,33 @@ NSString *slackAccessToken;
 - (void) slackAuthenticate:(CDVInvokedUrlCommand *)command
 {
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    slackAccessToken = [defaults objectForKey:@"SlackAccessToken"];
+
     currentCallBackID = command.callbackId;
-    
-    if(![self checkTokenValidity])
+    retainCommand = self.commandDelegate;
+    IMMSlackerClient *immSlackerClient = [IMMSlackerClient alloc];
+    if(![immSlackerClient checkTokenValidity:slackAccessToken])
     {
-        slackClientID =[IMMSlacker getStoredCodes:@"SlackClientID" ];
+        immSlackerClient.SlackClientID =[IMMSlacker getStoredCodes:@"SlackClientID" ];
         
-        if(!slackClientID)
-        {
-            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-                                                              messageAsString:@"Missing client ID url scheme in app .plist"];
-            [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
-            return;
-        }
-        
-        NSString *slackAPIURL = [NSString  stringWithFormat:@"https://slack.com/oauth/authorize?client_id=%@&scope=read", slackClientID];
-        NSURLRequest *slackRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:slackAPIURL]];
+        NSDictionary *options  = [command.arguments objectAtIndex:0];
+    
+        NSURLRequest *slackRequest = [immSlackerClient slackAuthenticateURL:options];
         
         CDVViewController* viewController = [CDVViewController new];
         viewController.view.tag = 5;
         [self.viewController.view addSubview:viewController.view];
         
         [viewController.webView loadRequest:slackRequest];
-        
-        NSDictionary *jsonObj = [ [NSDictionary alloc]  initWithObjectsAndKeys: @"true", @"success",
-                                 slackAccessToken, @"accessToken", nil];
+    }
+    else
+    {
+        NSDictionary *jsonObj = [ [NSDictionary alloc]  initWithObjectsAndKeys: @"success", @"true",
+                                 @"username", self.loggedinUserName , nil];
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
                                                       messageAsDictionary:jsonObj];
-        [pluginResult setKeepCallback:[NSNumber numberWithBool:YES]];
-        
-        //[self.commandDelegate sendPluginResult:pluginResult callbackId: currentCallBackID];
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId ];
     }
     
     
@@ -194,50 +172,22 @@ NSString *slackAccessToken;
 {
     NSString* userID = [command.arguments objectAtIndex:0];
     
-    NSString *restCallString = [NSString stringWithFormat:@"%@/users.getPresence?token=%@&user=%@", slackAPIURL, slackAccessToken , userID ];
-    
-    NSString *responseString = [IMMSlacker makeRestAPICall: restCallString];
-    NSData* responseData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSDictionary *jsonArray=[NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
-    
-    NSDictionary *jsonObj = [[NSDictionary alloc] initWithObjectsAndKeys:@"true", @"success",
-                             [jsonArray objectForKey:@"presence"], @"presence", nil];
-    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:jsonObj];
+    IMMSlackerClient  *immSlackerClient = [IMMSlackerClient alloc];
+    immSlackerClient.SlackAccessToken = slackAccessToken;
+
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:[immSlackerClient checkPresence:userID]];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (BOOL) checkTokenValidity
-{
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    slackAccessToken = [defaults objectForKey:@"SlackAccessToken"];
-    
-    if (slackAccessToken) {
-        
-        NSString *restCallString = [NSString stringWithFormat:@"%@/auth.test?token=%@", slackAPIURL, slackAccessToken];
-        
-        NSString *responseString = [IMMSlacker makeRestAPICall: restCallString];
-        NSData* responseData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
-        
-        NSDictionary *jsonArray=[NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
-        return [jsonArray objectForKey:@"ok"];
-    }
-    
-    return NO;
-    
-    
-    
-}
+
 
 
 
 #pragma mark - Slack_Utility
 
-
-+ (NSString *) makeRestAPICall : (NSString*) reqURLStr
++ (NSString *) makeRestAPICall : (NSString*) reqURL
 {
-    NSURLRequest *Request = [NSURLRequest requestWithURL:[NSURL URLWithString: reqURLStr]];
+    NSURLRequest *Request = [NSURLRequest requestWithURL:[NSURL URLWithString: reqURL]];
     NSURLResponse *resp = nil;
     NSError *error = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest: Request returningResponse: &resp error: &error];
@@ -245,6 +195,7 @@ NSString *slackAccessToken;
     NSLog(@"%@",responseString);
     return responseString;
 }
+
 
 + (NSString*) getStoredCodes : (NSString* ) key {
     NSArray* URLTypes = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
