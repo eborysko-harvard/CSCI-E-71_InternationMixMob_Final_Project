@@ -3,15 +3,8 @@
 #import <Cordova/CDV.h>
 #import <IMMSlackerClient/IMMSlackerClient.h>
 
-NSString *slackClientSecret;
-NSString *slackClientID;
 id<CDVCommandDelegate> retainCommand;
 NSString *currentCallBackID;
-
-
-
-
-
 NSString *slackAccessToken;
 
 @implementation AppDelegate (SlackReturnHandle)
@@ -25,7 +18,7 @@ NSString *slackAccessToken;
     
     
     //This should match the client scheme not slacker scheme
-    if([url.scheme isEqualToString:@"slacker"]){
+    if([url.scheme isEqualToString:[IMMSlacker getStoredCodes:@"edu.cscie71.imm.app" ]]){
         
         //unload the authentication page if loaded.
         for(UIView *subview in [self.viewController.view subviews]){
@@ -82,10 +75,11 @@ NSString *slackAccessToken;
         
 
         immSlackerClient.SlackClientID = [IMMSlacker getStoredCodes:@"SlackClientID"];
+        immSlackerClient.SlackClientSecret = [IMMSlacker getStoredCodes:@"SlackClientSecret"];
         
-        NSString *slackAccessCode = [immSlackerClient getSlackAccessCode:slackCode  ];
+        slackAccessToken = [immSlackerClient getSlackAccessCode:slackCode  ];
         
-        if(!slackAccessCode)
+        if(!slackAccessToken)
         {
             //Send Error to client ?
             CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
@@ -164,7 +158,8 @@ NSString *slackAccessToken;
                                                       messageAsDictionary:jsonObj];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId ];
     }
-    
+
+       
     
 }
 
