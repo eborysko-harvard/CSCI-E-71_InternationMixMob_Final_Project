@@ -94,9 +94,7 @@ NSString *slackAccessToken;
         
         [defaults synchronize];
         
-        
-        NSDictionary *jsonObj = [ [NSDictionary alloc]  initWithObjectsAndKeys: @"true", @"success",
-                                 self.loggedinUserName, @"username",nil];
+        NSDictionary *jsonObj = [ [NSDictionary alloc]  initWithObjectsAndKeys: @"true", @"success",nil];
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
                                                       messageAsDictionary:jsonObj];
         [retainCommand sendPluginResult:pluginResult callbackId:currentCallBackID ];
@@ -152,8 +150,7 @@ NSString *slackAccessToken;
     }
     else
     {
-        NSDictionary *jsonObj = [ [NSDictionary alloc]  initWithObjectsAndKeys: @"success", @"true",
-                                 @"username", self.loggedinUserName , nil];
+        NSDictionary *jsonObj = [ [NSDictionary alloc]  initWithObjectsAndKeys: @"true", @"success",nil];
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
                                                       messageAsDictionary:jsonObj];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId ];
