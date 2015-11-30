@@ -44,7 +44,18 @@ presence: function(successCallback, errorCallback, message) {
          },pluginName, 'checkPresence', [userid]);
 },
     
-    
+
+disconnect: function(successCallback, errorCallback) {
+               if (successCallback == null) {
+               successCallback = function () {
+               }
+               }
+               if (errorCallback == null) {
+               errorCallback = function () {
+               }
+               }
+               exec(successCallback,errorCallback,pluginName, 'slackDisconnect', []);
+},
     
     /**
      * Slacker object
