@@ -23,10 +23,7 @@
       </feature>
     </config-file>
     <source-file src="src/android/Slacker.java" target-dir="src/edu/cscie71/imm/slacker/plugin" />
-    <!--
-      Placeholder for our client jar
-    <lib-file src="src/android/libs/XXXXX.jar" />
-    -->
+    <lib-file src="src/android/libs/Slacker.jar" />
   </platform>
 
   <platform name="ios">
