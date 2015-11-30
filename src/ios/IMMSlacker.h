@@ -23,7 +23,7 @@
 
 - (void) getSlackAccessCode:(NSString *) slackCode;
 
-//- (void) cordovaSlackLogout:(CDVInvokedUrlCommand *) command;
+- (void) slackDisconnect:(CDVInvokedUrlCommand *) command;
 
 
 #pragma mark - Slack_Utility
@@ -32,5 +32,6 @@
 
 + (NSString*) getStoredCodes : (NSString* ) key;
 
++ (id)sharedInstance;
 
 @end
