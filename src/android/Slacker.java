@@ -23,7 +23,7 @@ public class Slacker extends CordovaPlugin {
     }
 
     private void postMessage(String message, CallbackContext callbackContext) {
-        String response = mockSlack.postMessage(token, immTestChannel, message);
+        String response = slackerClient.postMessage(token, immTestChannel, message);
         if (response.contains("\"ok\":true"))
             callbackContext.success(message);
         else
