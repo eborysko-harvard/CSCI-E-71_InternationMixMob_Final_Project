@@ -5,7 +5,6 @@
 
 id<CDVCommandDelegate> retainCommand;
 NSString *currentCallBackID;
-NSString *slackAccessToken;
 
 @implementation AppDelegate (SlackReturnHandle)
 
@@ -15,7 +14,6 @@ NSString *slackAccessToken;
   sourceApplication: (NSString *)sourceApplication
          annotation: (id)annotation {
     // call super
-    
     
     //This should match the client scheme not slacker scheme
     if([url.scheme isEqualToString:[IMMSlacker getStoredCodes:@"edu.cscie71.imm.app" ]]){
@@ -45,7 +43,7 @@ NSString *slackAccessToken;
         {
             NSString *codeQuery = [codeParam objectAtIndex:0];
             NSString *code = [codeQuery stringByReplacingOccurrencesOfString:@"code=" withString:@""];
-            IMMSlacker *immSlacker = [IMMSlacker alloc];
+            IMMSlacker *immSlacker = [IMMSlacker sharedInstance];
             [immSlacker getSlackAccessCode:code];
         }
         
@@ -71,26 +69,18 @@ NSString *slackAccessToken;
     
     @try {
         
-        IMMSlackerClient *immSlackerClient = [IMMSlackerClient alloc];
+        IMMSlackerClient *immSlackerClient = [IMMSlackerClient sharedInstance];
         
 
         immSlackerClient.SlackClientID = [IMMSlacker getStoredCodes:@"SlackClientID"];
         immSlackerClient.SlackClientSecret = [IMMSlacker getStoredCodes:@"SlackClientSecret"];
         
-        slackAccessToken = [immSlackerClient getSlackAccessCode:slackCode  ];
+        [immSlackerClient setSlackAccessCode:slackCode ];
         
-        if(!slackAccessToken)
-        {
-            //Send Error to client ?
-            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-                                                              messageAsString:@"Unable to authenticate with Slack"];
-            [retainCommand sendPluginResult:pluginResult callbackId:currentCallBackID];
-            return;
-        }
         
         //store the access token
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:slackAccessToken forKey:@"SlackAccessToken"];
+        [defaults setObject:immSlackerClient.SlackAccessToken forKey:@"SlackAccessToken"];
         
         [defaults synchronize];
         
@@ -103,7 +93,7 @@ NSString *slackAccessToken;
     @catch (NSException *exception) {
         
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error authenticating with Slack"];
-       // NSLog(exception.description);
+        //NSLog(exception.description);
         [retainCommand sendPluginResult:pluginResult callbackId:currentCallBackID ];
     }
     
@@ -112,33 +102,41 @@ NSString *slackAccessToken;
 
 - (void)postMessage:(CDVInvokedUrlCommand*)command
 {
-    CDVPluginResult* pluginResult = nil;
-    NSString* echo = [command.arguments objectAtIndex:0];
-    
-    if (echo != nil && [echo length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    @try {
+        
+        
+        
+        NSString* message = [command.arguments objectAtIndex:0];
+        NSString* channelID = [command.arguments objectAtIndex:1];
+        IMMSlackerClient *immSlackerClient = [IMMSlackerClient sharedInstance];
+        
+        [immSlackerClient postMessage:channelID :message];
+        
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        
     }
-    
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    @catch (NSException *exception) {
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Unable to post message"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }
 }
 
 
 - (void) slackAuthenticate:(CDVInvokedUrlCommand *)command
 {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    slackAccessToken = [defaults objectForKey:@"SlackAccessToken"];
-
     currentCallBackID = command.callbackId;
     retainCommand = self.commandDelegate;
-    IMMSlackerClient *immSlackerClient = [IMMSlackerClient alloc];
-    if(![immSlackerClient checkTokenValidity:slackAccessToken])
+    IMMSlackerClient *immSlackerClient = [IMMSlackerClient sharedInstance];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    immSlackerClient.SlackAccessToken = [defaults objectForKey:@"SlackAccessToken"];
+    
+    if(![immSlackerClient checkTokenValidity])
     {
         immSlackerClient.SlackClientID =[IMMSlacker getStoredCodes:@"SlackClientID" ];
         
-        NSDictionary *options  = [command.arguments objectAtIndex:0];
+        NSArray *options  = [command.arguments objectAtIndex:0];
     
         NSURLRequest *slackRequest = [immSlackerClient slackAuthenticateURL:options];
         
@@ -164,8 +162,7 @@ NSString *slackAccessToken;
 {
     NSString* userID = [command.arguments objectAtIndex:0];
     
-    IMMSlackerClient  *immSlackerClient = [IMMSlackerClient alloc];
-    immSlackerClient.SlackAccessToken = slackAccessToken;
+    IMMSlackerClient  *immSlackerClient = [IMMSlackerClient sharedInstance];
 
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:[immSlackerClient checkPresence:userID]];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -196,6 +193,34 @@ NSString *slackAccessToken;
     return nil;
 }
 
+- (void) slackDisconnect:(CDVInvokedUrlCommand *)command
+{
+    @try {
+        
+        //Remove the Stored access token
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults removeObjectForKey:@"SlackAccessToken"];
+        
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        
+    }
+    @catch (NSException *exception) {
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Unable to post message"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }
 
+}
+
++ (id)sharedInstance
+{
+    //This will ensure that only one instance of the IMMSlacker object exists
+    static dispatch_once_t p = 0;
+    __strong static id _sharedObject = nil;
+    dispatch_once(&p, ^{
+        _sharedObject = [[self alloc] init];
+    });
+    return _sharedObject;
+}
 
 @end
