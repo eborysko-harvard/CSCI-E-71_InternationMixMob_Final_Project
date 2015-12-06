@@ -36,15 +36,30 @@ authenticate: function(successCallback,errorCallback,options) {
     exec(successCallback,errorCallback,pluginName, 'slackAuthenticate', [options]);
 },
     
-presence: function(successCallback, errorCallback, message) {
-    exec(function callback(data){
-         ''
-         },function errorHandler(err){
-         ''
-         },pluginName, 'checkPresence', [userid]);
+presence: function(successCallback, errorCallback, userid) {
+               if (successCallback == null) {
+               successCallback = function () {
+               }
+               }
+               if (errorCallback == null) {
+               errorCallback = function () {
+               }
+               }
+    exec(successCallback,errorCallback,pluginName, 'checkPresence', [userid]);
 },
     
-    
+
+disconnect: function(successCallback, errorCallback) {
+               if (successCallback == null) {
+               successCallback = function () {
+               }
+               }
+               if (errorCallback == null) {
+               errorCallback = function () {
+               }
+               }
+               exec(successCallback,errorCallback,pluginName, 'slackDisconnect', []);
+},
     
     /**
      * Slacker object
