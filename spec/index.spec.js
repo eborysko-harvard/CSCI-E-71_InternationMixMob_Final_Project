@@ -101,8 +101,8 @@ describe('cordova-plugin-slacker', function () {
         success,
         error,
         'Slacker',
-        'disconnect',
-        ['']
+        'slackDisconnect',
+        []
       );
     });
     
@@ -112,8 +112,8 @@ describe('cordova-plugin-slacker', function () {
         jasmine.any(Function),
         jasmine.any(Function),
         'Slacker',
-        'disconnect',
-        ['']
+        'slackDisconnect',
+        []
       );
     });
     
