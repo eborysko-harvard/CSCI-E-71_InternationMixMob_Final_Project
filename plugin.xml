@@ -39,6 +39,7 @@
     -->
     <header-file src="src/ios/IMMSlacker.h" />
     <source-file src="src/ios/IMMSlacker.m"/>
+    <framework src="src/ios/libs/IMMSlackerClient.framework" custom="true" />
     
     <preference name="SLACK_CLIENT_ID"/>
     <preference name="SLACK_CLIENT_SECRET"/>
