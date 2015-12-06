@@ -50,10 +50,10 @@
                 <key>CFBundleTypeRole</key>
                 <string>Editor</string>
                 <key>CFBundleURLName</key>
-                <string>$PACKAGE_NAME</string>
+                <string>edu.cscie71.imm.app</string>
                 <key>CFBundleURLSchemes</key>
                 <array>
-                    <string>slacker</string>
+                    <string>slackertest</string>
                 </array>
             </dict>
             <dict>
