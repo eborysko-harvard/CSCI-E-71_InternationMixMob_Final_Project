@@ -209,7 +209,7 @@ Example projects use NPM to get dependencies, run build, and run tests. After cl
 I will enable more commands shortly. iOS project requires Mac OSX and Node 4.1.1 to function. Android build should run on OSX or Linux. If someone has a Windows environment to, please let me know.
 
 ## Sprint Retrospective
-First Retro Nov 16
+Sprint 1 Retro Nov 16
 
 * Good/Continue doing:
    * `Impressive lineup of tools`
@@ -224,3 +224,25 @@ First Retro Nov 16
 
 * Stop doing:
    * `Long term goals/experimentation`
+
+
+Sprint 2 Retro Nov 29
+
+* Good/Continue doing:
+   * `Learning new things from technical challenges`
+   * `Paired/Mob Sessions`
+   * `Always have a backup when presenting`
+
+* Start doing:
+   * `Better sharing of knowledge between members `
+   * `Integration testing`
+   * `Focus on making all the existing code rock solid`
+   * `Focus on polishing`
+   * `Nice presentation with Reveal.js or Prezi for final`
+
+* Problems/Stop doing:
+   * `Lack of participation`
+   * `Difficult to keep track of all the layers`
+   * `Need to highlight the complexity of CI board and explain its nuances`
+   * `Consider consolidating the 2 teams`
+   * `Demo could look better - use mockups if necessary`
