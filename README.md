@@ -14,6 +14,8 @@ Final project for the group **International Mix Mob**
 * iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
 * Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
 
+### Project demos
+* https://youtu.be/wDJJRbsdaSw
 
 ##Product Vision
 Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application. The plugin includes:
@@ -196,7 +198,7 @@ Optional - If you have multiple versions of node.js and need to switch between t
 Review Ninja has been added to Github. Directions coming soon.
 
 ## Example CI Projects
-* [iOS Cordova](https://github.com/InternationalMixMob/Test_CI_iOS) 
+* [iOS Cordova](https://github.com/InternationalMixMob/Test_CI_iOS)
 * [Android Cordova](https://github.com/InternationalMixMob/Test_CI_Android)
 
 Example projects use NPM to get dependencies, run build, and run tests. After cloning, run the following commands:
@@ -204,7 +206,7 @@ Example projects use NPM to get dependencies, run build, and run tests. After cl
 * <root of project>/npm test
 * <root of project>/npm run build
 
-I will enable more commands shortly. iOS project requires Mac OSX and Node 4.1.1 to function. Android build should run on OSX or Linux. If someone has a Windows environment to, please let me know. 
+I will enable more commands shortly. iOS project requires Mac OSX and Node 4.1.1 to function. Android build should run on OSX or Linux. If someone has a Windows environment to, please let me know.
 
 ## Sprint Retrospective
 First Retro Nov 16
@@ -222,5 +224,3 @@ First Retro Nov 16
 
 * Stop doing:
    * `Long term goals/experimentation`
-
-
