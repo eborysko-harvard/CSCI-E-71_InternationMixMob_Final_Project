@@ -5,6 +5,7 @@
 
 id<CDVCommandDelegate> retainCommand;
 NSString *currentCallBackID;
+//NSString const *slackTestChannel = @"C0F6U0R5E";
 
 @implementation AppDelegate (SlackReturnHandle)
 
@@ -49,13 +50,9 @@ NSString *currentCallBackID;
         
     }
     
-    
     return YES;
     
 }
-
-
-
 
 @end
 
@@ -107,7 +104,10 @@ NSString *currentCallBackID;
         
         
         NSString* message = [command.arguments objectAtIndex:0];
-        NSString* channelID = [command.arguments objectAtIndex:1];
+        NSString *channelID = @"C0F6U0R5E";
+        if(command.arguments.count > 1)
+            channelID = [command.arguments objectAtIndex:1];
+        
         IMMSlackerClient *immSlackerClient = [IMMSlackerClient sharedInstance];
         
         [immSlackerClient postMessage:channelID :message];
@@ -153,9 +153,6 @@ NSString *currentCallBackID;
                                                       messageAsDictionary:jsonObj];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId ];
     }
-
-       
-    
 }
 
 - (void) checkPresence:(CDVInvokedUrlCommand *)command
