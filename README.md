@@ -15,7 +15,8 @@ Final project for the group **International Mix Mob**
 * Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
 
 ### Project demos
-* https://youtu.be/wDJJRbsdaSw
+* Part 2: https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App/blob/hockeyapp/iOS_sim.png
+* Part 3: https://youtu.be/wDJJRbsdaSw
 
 ##Product Vision
 Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application. The plugin includes:
@@ -35,7 +36,6 @@ Create Cordova plugins for iOS and Android to enable Slack services within devel
 * Jeffry Pincus, _Android Developer_
 * Frederick Jansen, _Android & Hybrid Developer_
 * Manoj Shenoy, _iOS Developer_
-* Shameek Nath, _Android Developer_
 * Justin Sanford, _Android & Hybrid Developer_
 * Evan Borysko, _Product Owner & part-time iOS Developer_
 
@@ -63,9 +63,9 @@ Alpana Barua
 * Product has matched or exceeded the expectation of stake holders after product review.
 
 ## Stakeholders
-* **Mobile App Developer** - needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.
-* **Mobile Hybrid Web Developer**- needs a plugin that is platform agnostic, authentication should be fast and reliable with clear error descriptions.
-* **Product Owner** - needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.
+* **Mobile App Developer - Nora from Evan's Staff** - needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.
+* **Mobile Hybrid Web Developer - Ajay from Evan's Staff**- needs a plugin that is platform agnostic, authentication should be fast and reliable with clear error descriptions.
+* **Product Owner - Evan** - needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.
 
 ## Resources
 ### Project / Agile Tools
