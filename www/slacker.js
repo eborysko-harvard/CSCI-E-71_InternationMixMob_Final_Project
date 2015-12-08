@@ -25,12 +25,15 @@ postMessage: function (successCallback, errorCallback, message) {
 },
 
 // successCallback(channels[])
-// errorCallback(messageString)
+// errorCallback(messageString);
 getChannelList: function (successCallback, errorCallback, excludeArchivedChannels) {
+    if (successCallback == null) {
+        successCallback = function () {
+        }
+    }
     var parseJSONStringSuccess = function (jsonString) {
         var response = JSON.parse(jsonString);
-        if (successCallback != null)
-            successCallback(response.channels);
+        successCallback(response);
     }
     
     if (errorCallback == null) {

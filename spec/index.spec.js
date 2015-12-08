@@ -44,6 +44,17 @@ describe('cordova-plugin-slacker', function () {
         ['message test']
       );
     });
+
+    it('post message with empty callbacks should create default functions', function () {
+      Slacker.postMessage(null, null, 'message test');
+      expect(execSpy).toHaveBeenCalledWith(
+        jasmine.any(Function),
+        jasmine.any(Function),
+        'Slacker',
+        'postMessage',
+        ['message test']
+      );
+    });
     
     it('should authenticate', function () {
       var success = function () {};
@@ -116,17 +127,52 @@ describe('cordova-plugin-slacker', function () {
         []
       );
     });
-    
-    
 
-    it('post message with empty callbacks should create default functions', function () {
-      Slacker.postMessage(null, null, 'message test');
+    it('executes getChannelList method excluding archives', function () {
+      Slacker.getChannelList(null, null, true);
       expect(execSpy).toHaveBeenCalledWith(
         jasmine.any(Function),
         jasmine.any(Function),
         'Slacker',
-        'postMessage',
-        ['message test']
+        'getChannelList',
+        [true]
+      );
+    });
+
+    it('executes getChannelList method including archives', function () {
+      Slacker.getChannelList(null, null, false);
+      expect(execSpy).toHaveBeenCalledWith(
+        jasmine.any(Function),
+        jasmine.any(Function),
+        'Slacker',
+        'getChannelList',
+        [false]
+      );
+    });
+
+    it('executes getChannelList method excluding archives with callbacks' , function () {
+      var success = function () {};
+      var error = function () {};
+      Slacker.getChannelList(success, error, true);
+      expect(execSpy).toHaveBeenCalledWith(
+        jasmine.any(Function),
+        jasmine.any(Function),
+        'Slacker',
+        'getChannelList',
+        [true]
+      );
+    });
+
+    it('executes getChannelList method including archives with callbacks', function () {
+      var success = function () {};
+      var error = function () {};
+      Slacker.getChannelList(success, error, false);
+      expect(execSpy).toHaveBeenCalledWith(
+        jasmine.any(Function),
+        jasmine.any(Function),
+        'Slacker',
+        'getChannelList',
+        [false]
       );
     });
   });
