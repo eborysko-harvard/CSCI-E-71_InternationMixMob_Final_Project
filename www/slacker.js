@@ -33,7 +33,7 @@ getChannelList: function (successCallback, errorCallback, excludeArchivedChannel
     }
     var parseJSONStringSuccess = function (jsonString) {
         var response = JSON.parse(jsonString);
-        successCallback(response);
+        successCallback(response.channels);
     }
     
     if (errorCallback == null) {
