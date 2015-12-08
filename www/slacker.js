@@ -1,17 +1,17 @@
 var exec = cordova.require('cordova/exec');
 
 var Slacker = function (options) {
-    
+
 };
 
 var pluginName = "Slacker";
 
 module.exports = {
-    
+
 init: function (options) {
     return new Slacker(options);
 },
-    
+
 postMessage: function (successCallback, errorCallback, message) {
     if (successCallback == null) {
         successCallback = function () {
@@ -23,7 +23,26 @@ postMessage: function (successCallback, errorCallback, message) {
     }
     exec(successCallback, errorCallback, pluginName, 'postMessage', [message]);
 },
+
+// successCallback(channels[])
+// errorCallback(messageString);
+getChannelList: function (successCallback, errorCallback, excludeArchivedChannels) {
+    if (successCallback == null) {
+        successCallback = function () {
+        }
+    }
+    var parseJSONStringSuccess = function (jsonString) {
+        var response = JSON.parse(jsonString);
+        successCallback(response.channels);
+    }
     
+    if (errorCallback == null) {
+        errorCallback = function () {
+        }
+    }
+    exec(parseJSONStringSuccess, errorCallback, pluginName, 'getChannelList', [excludeArchivedChannels]);
+},
+
 authenticate: function(successCallback,errorCallback,options) {
                if (successCallback == null) {
                successCallback = function () {
@@ -35,7 +54,7 @@ authenticate: function(successCallback,errorCallback,options) {
                }
     exec(successCallback,errorCallback,pluginName, 'slackAuthenticate', [options]);
 },
-    
+
 presence: function(successCallback, errorCallback, userid) {
                if (successCallback == null) {
                successCallback = function () {
@@ -47,7 +66,7 @@ presence: function(successCallback, errorCallback, userid) {
                }
     exec(successCallback,errorCallback,pluginName, 'checkPresence', [userid]);
 },
-    
+
 
 disconnect: function(successCallback, errorCallback) {
                if (successCallback == null) {
@@ -60,7 +79,7 @@ disconnect: function(successCallback, errorCallback) {
                }
                exec(successCallback,errorCallback,pluginName, 'slackDisconnect', []);
 },
-    
+
     /**
      * Slacker object
      *

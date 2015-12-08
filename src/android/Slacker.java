@@ -22,6 +22,10 @@ public class Slacker extends CordovaPlugin {
             String message = args.getString(0);
             this.postMessage(message, callbackContext);
         }
+        else if (action.equals("getChannelList")) {
+            boolean excludeArchivedChannels = args.getBoolean(0);
+            this.getChannelList(excludeArchivedChannels, callbackContext);
+        }
         return false;
     }
 
@@ -31,6 +35,14 @@ public class Slacker extends CordovaPlugin {
             callbackContext.success(message);
         else
             callbackContext.error("Error posting to the Slack channel.");
+    }
+
+    private void getChannelList(boolean excludeArchivedChannels, CallbackContext callbackContext) {
+        String response = slackerClient.getChannelList(token, excludeArchivedChannels);
+        if (response.contains("\"ok\":true"))
+            callbackContext.success(response);
+        else
+            callbackContext.error("Error getting channel list from Slack.");
     }
 
     private void storeOAuthToken(String token) {
