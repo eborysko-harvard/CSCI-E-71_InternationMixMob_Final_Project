@@ -24,16 +24,20 @@ postMessage: function (successCallback, errorCallback, message) {
     exec(successCallback, errorCallback, pluginName, 'postMessage', [message]);
 },
 
+// successCallback(channels[])
+// errorCallback(messageString)
 getChannelList: function (successCallback, errorCallback, excludeArchivedChannels) {
-    if (successCallback == null) {
-        successCallback = function () {
-        }
+    var parseJSONStringSuccess = function (jsonString) {
+        var response = JSON.parse(jsonString);
+        if (successCallback != null)
+            successCallback(response.channels);
     }
+    
     if (errorCallback == null) {
         errorCallback = function () {
         }
     }
-    exec(successCallback, errorCallback, pluginName, 'getChannelList', [excludeArchivedChannels]);
+    exec(parseJSONStringSuccess, errorCallback, pluginName, 'getChannelList', [excludeArchivedChannels]);
 },
 
 authenticate: function(successCallback,errorCallback,options) {
