@@ -22,7 +22,7 @@ public class Slacker extends CordovaPlugin {
             String message = args.getString(0);
             this.postMessage(message, callbackContext);
         }
-        else if (action.equals("listChannels")) {
+        else if (action.equals("getChannelList")) {
             boolean excludeArchivedChannels = args.getBoolean(0);
             this.getChannelList(excludeArchivedChannels, callbackContext);
         }
