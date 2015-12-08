@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-slack" version="0.0.2">
-<!-- 
+<!--
   TODO: Setup Slack API URL whitelist
 -->
   <name>Slacker</name>
@@ -15,6 +15,9 @@
   <js-module src="www/slacker.js" name="Slacker">
     <clobbers target="Slacker" />
   </js-module>
+
+  <preference name="SLACK_CLIENT_ID"/>
+  <preference name="SLACK_CLIENT_SECRET"/>
 
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
@@ -31,19 +34,19 @@
       <feature name="Slacker">
          <param name="ios-package" value="IMMSlacker" />
       </feature>
+      <string name="SlackClientID">$SLACK_CLIENT_ID</string>
+      <string name="SlackClientSecret">$SLACK_CLIENT_SECRET</string>
     </config-file>
-    <!-- 
+    <!--
       Placeholder for resources
       <resource-file src="CDVFoo.bundle" />
       <resource-file src="CDVFooViewController.xib" />
     -->
     <header-file src="src/ios/IMMSlacker.h" />
     <source-file src="src/ios/IMMSlacker.m"/>
+
     <framework src="src/ios/libs/IMMSlackerClient.framework" custom="true" />
-    
-    <preference name="SLACK_CLIENT_ID"/>
-    <preference name="SLACK_CLIENT_SECRET"/>
-    
+
     <config-file target="*-Info.plist" parent="CFBundleURLTypes">
         <array>
             <dict>
@@ -78,7 +81,7 @@
             </dict>
         </array>
     </config-file>
-    
+
     <!-- iOS9 whitelisting
     <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
         <array>
@@ -86,7 +89,7 @@
             <string>$SlackClientID</string>
         </array>
     </config-file>-->
-    
+
     <!--
       Placeholder for our client lib
     <source-file src="src/ios/IMMSlackerClient.a" framework="true" />
