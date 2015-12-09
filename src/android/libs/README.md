@@ -1,1 +1,0 @@
-Jar file for Slacker plugin Slack API Client

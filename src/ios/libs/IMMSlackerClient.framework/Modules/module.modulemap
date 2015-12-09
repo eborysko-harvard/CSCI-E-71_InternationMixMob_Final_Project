@@ -1,6 +1,0 @@
-framework module IMMSlackerClient {
-  umbrella header "IMMSlackerClient.h"
-
-  export *
-  module * { export * }
-}

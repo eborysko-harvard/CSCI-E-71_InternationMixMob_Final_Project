@@ -1,0 +1,7 @@
+{
+  "name": "mixmob",
+  "private": true,
+  "dependencies": {
+    "reveal.js": "~3.2.0"
+  }
+}
