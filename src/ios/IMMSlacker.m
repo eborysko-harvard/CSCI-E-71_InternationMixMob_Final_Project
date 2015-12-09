@@ -166,6 +166,19 @@ NSString *currentCallBackID;
 }
 
 
+-(void) getChannelList:(CDVInvokedUrlCommand *)command
+{
+    IMMSlackerClient *immSlackerClient = [IMMSlackerClient sharedInstance];
+    
+    BOOL excludeArchived = [command.arguments objectAtIndex:0];
+    
+    NSDictionary *jsonObj = [immSlackerClient getChannelList:excludeArchived ];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                                  messageAsDictionary:jsonObj];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 
 
 
