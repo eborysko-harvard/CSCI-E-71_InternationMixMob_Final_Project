@@ -1,1 +1,1 @@
-Presentation Link: InternationalMixMob.github.io/CSCI-E-71_IMM_Slacker_Cordova_Plugin
+Presentation Link: http://InternationalMixMob.github.io/CSCI-E-71_IMM_Slacker_Cordova_Plugin
