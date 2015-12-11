@@ -1,9 +1,13 @@
 package edu.cscie71.imm.slacker.plugin;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -25,17 +29,18 @@ public class Slacker extends CordovaPlugin {
     private String immTestChannel = "C0F6U0R5E";
     private String authURL = "https://slack.com/oauth/authorize";
     private static final String PREFS = "Slacker";
-    private String slackClientID = null;
-    private String slackClientSecret = null;
+    private String slackClientID = "";
+    private String slackClientSecret = "";
+    private Dialog dialog;
 
     private WebView inAppWebView;
 
     @Override
     public void initialize(CordovaInterface cordovaInterface, CordovaWebView cordovaWebView) {
-        int slackClient = cordova.getActivity().getResources().getIdentifier("SlackClientID", "string", cordova.getActivity().getPackageName());
-        slackClientID = cordova.getActivity().getString(slackClient);
-        int slackSecret = cordova.getActivity().getResources().getIdentifier("SlackClientSecret", "string", cordova.getActivity().getPackageName());
-        slackClientSecret = cordova.getActivity().getString(slackSecret);
+        //int slackClient = cordova.getActivity().getResources().getIdentifier("SlackClientID", "string", cordova.getActivity().getPackageName());
+        //slackClientID = cordova.getActivity().getString(slackClient);
+        //int slackSecret = cordova.getActivity().getResources().getIdentifier("SlackClientSecret", "string", cordova.getActivity().getPackageName());
+        //slackClientSecret = cordova.getActivity().getString(slackSecret);
     }
 
     @Override
@@ -49,7 +54,6 @@ public class Slacker extends CordovaPlugin {
                     slacker.postMessage(message, cc);
                 }
             });
-            return true;
         } else if (action.equals("getChannelList")) {
             final boolean excludeArchivedChannels = args.getBoolean(0);
             final Slacker slacker = this;
@@ -59,9 +63,13 @@ public class Slacker extends CordovaPlugin {
                     slacker.getChannelList(excludeArchivedChannels, cc);
                 }
             });
-            return true;
+        } else if (action.equals("slackAuthenticate")) {
+            Log.d("Slacker", "In execute for slackAuthenticate");
+            this.openAuthScreen(callbackContext);
+        } else {
+            return false;
         }
-        return false;
+        return true;
     }
 
     private void postMessage(String message, CallbackContext callbackContext) {
@@ -82,13 +90,39 @@ public class Slacker extends CordovaPlugin {
         }
     }
 
-    private void openAuthScreen() {
-        final CordovaWebView thatWebView = this.webView;
-        LinearLayout mainLayout = new LinearLayout(cordova.getActivity());
+    /*
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+         http://www.apache.org/licenses/LICENSE-2.0
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+    */
+    private void openAuthScreen(CallbackContext callbackContext) {
+        Log.d("Slacker", "Before auth success");
+        //callbackContext.success("auth success");
+        Log.d("Slacker", "After auth success");
 
         Runnable runnable = new Runnable() {
             @SuppressLint("NewApi")
             public void run() {
+                dialog = new Dialog(cordova.getActivity(), android.R.style.Theme_NoTitleBar);
+                dialog.getWindow().getAttributes().windowAnimations = android.R.style.Animation_Dialog;
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+
+                LinearLayout mainLayout = new LinearLayout(cordova.getActivity());
+                mainLayout.setOrientation(LinearLayout.VERTICAL);
+
+                Log.d("Slacker", "In runnable for auth");
                 inAppWebView = new WebView(cordova.getActivity());
                 inAppWebView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
                 inAppWebView.setWebChromeClient(new WebChromeClient());
@@ -103,11 +137,23 @@ public class Slacker extends CordovaPlugin {
                 inAppWebView.getSettings().setUseWideViewPort(true);
                 inAppWebView.requestFocus();
                 inAppWebView.requestFocusFromTouch();
+
+                mainLayout.addView(inAppWebView);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+
+                dialog.setContentView(mainLayout);
+                dialog.show();
+                dialog.getWindow().setAttributes(lp);
             }
         };
+        this.cordova.getActivity().runOnUiThread(runnable);
     }
 
-    private void closeDialog() {
+    private void closeAuthScreen() {
         final WebView childView = this.inAppWebView;
         // The JS protects against multiple calls, so this should happen only when
         // closeDialog() is called by other native code.
@@ -126,6 +172,8 @@ public class Slacker extends CordovaPlugin {
         });
     }
 
+    /* License end */
+
     private void storeOAuthToken(String token) {
         Context context = cordova.getActivity();
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit();
@@ -143,7 +191,8 @@ public class Slacker extends CordovaPlugin {
     public class AuthBrowser extends WebViewClient {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-
+            super.onPageStarted(view, url, favicon);
+            Log.d("Slacker", "Page load started");
         }
     }
 }
