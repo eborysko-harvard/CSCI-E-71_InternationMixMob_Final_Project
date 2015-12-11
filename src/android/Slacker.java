@@ -27,6 +27,7 @@ public class Slacker extends CordovaPlugin {
                     slacker.postMessage(message, cc);
                 }
             });
+            return true;
         }
         else if (action.equals("getChannelList")) {
             final boolean excludeArchivedChannels = args.getBoolean(0);
@@ -37,7 +38,7 @@ public class Slacker extends CordovaPlugin {
                     slacker.getChannelList(excludeArchivedChannels, cc);
                 }
             });   
-            
+            return true;
         }
         return false;
     }
