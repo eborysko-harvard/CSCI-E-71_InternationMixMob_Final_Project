@@ -53,7 +53,7 @@
                 <string>edu.cscie71.imm.app</string>
                 <key>CFBundleURLSchemes</key>
                 <array>
-                    <string>slackertest</string>
+                    <string>slackerrefapp</string>
                 </array>
             </dict>
             <dict>
