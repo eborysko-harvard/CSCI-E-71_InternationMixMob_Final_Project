@@ -24,8 +24,10 @@
       <feature name="Slacker">
         <param name="android-package" value="edu.cscie71.imm.slacker.plugin.Slacker"/>
       </feature>
-      <string name="SlackClientID">$SLACK_CLIENT_ID</string>
-      <string name="SlackClientSecret">$SLACK_CLIENT_SECRET</string>
+    </config-file>
+    <config-file target="res/values/strings.xml" parent="/*">
+      <string name="slack_client_id" >$SLACK_CLIENT_ID</string>
+      <string name="slack_client_secret">$SLACK_CLIENT_SECRET</string>
     </config-file>
     <source-file src="src/android/Slacker.java" target-dir="src/edu/cscie71/imm/slacker/plugin" />
     <lib-file src="src/android/libs/Slacker.jar" />

@@ -37,10 +37,11 @@ public class Slacker extends CordovaPlugin {
 
     @Override
     public void initialize(CordovaInterface cordovaInterface, CordovaWebView cordovaWebView) {
-        //int slackClient = cordova.getActivity().getResources().getIdentifier("SlackClientID", "string", cordova.getActivity().getPackageName());
-        //slackClientID = cordova.getActivity().getString(slackClient);
-        //int slackSecret = cordova.getActivity().getResources().getIdentifier("SlackClientSecret", "string", cordova.getActivity().getPackageName());
-        //slackClientSecret = cordova.getActivity().getString(slackSecret);
+        super.initialize(cordovaInterface, cordovaWebView);
+        int slackClient = cordova.getActivity().getResources().getIdentifier("slack_client_id", "string", cordova.getActivity().getPackageName());
+        slackClientID = cordova.getActivity().getString(slackClient);
+        int slackSecret = cordova.getActivity().getResources().getIdentifier("slack_client_secret", "string", cordova.getActivity().getPackageName());
+        slackClientSecret = cordova.getActivity().getString(slackSecret);
     }
 
     @Override
@@ -132,7 +133,7 @@ public class Slacker extends CordovaPlugin {
                 settings.setJavaScriptEnabled(true);
                 settings.setJavaScriptCanOpenWindowsAutomatically(true);
 
-                inAppWebView.loadUrl(authURL);
+                inAppWebView.loadUrl(authURL+"?client_id="+slackClientID+"&scope=channels:read");
                 inAppWebView.getSettings().setLoadWithOverviewMode(true);
                 inAppWebView.getSettings().setUseWideViewPort(true);
                 inAppWebView.requestFocus();
