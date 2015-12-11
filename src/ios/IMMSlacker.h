@@ -29,7 +29,7 @@
 
 #pragma mark - Slack_Utility
 
-
+-(NSString*) getStoredAccessCode;
 
 + (NSString*) getStoredCodes : (NSString* ) key;
 

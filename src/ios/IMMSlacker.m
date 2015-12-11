@@ -129,14 +129,18 @@ NSString *currentCallBackID;
     currentCallBackID = command.callbackId;
     retainCommand = self.commandDelegate;
     IMMSlackerClient *immSlackerClient = [IMMSlackerClient sharedInstance];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    immSlackerClient.SlackAccessToken = [defaults objectForKey:@"SlackAccessToken"];
+
+    if (!immSlackerClient.SlackAccessToken) {
+        immSlackerClient.SlackAccessToken = [self getStoredAccessCode];
+    }
     
     if(![immSlackerClient checkTokenValidity])
     {
         immSlackerClient.SlackClientID =[IMMSlacker getStoredCodes:@"SlackClientID" ];
         
-        NSArray *options  = [command.arguments objectAtIndex:0];
+        NSArray *options;
+        if(!command.arguments)
+            options = [command.arguments objectAtIndex:0];
     
         NSURLRequest *slackRequest = [immSlackerClient slackAuthenticateURL:options];
         
@@ -161,6 +165,10 @@ NSString *currentCallBackID;
     
     IMMSlackerClient  *immSlackerClient = [IMMSlackerClient sharedInstance];
 
+    if (!immSlackerClient.SlackAccessToken) {
+        immSlackerClient.SlackAccessToken = [self getStoredAccessCode];
+    }
+
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:[immSlackerClient checkPresence:userID]];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
@@ -169,6 +177,10 @@ NSString *currentCallBackID;
 -(void) getChannelList:(CDVInvokedUrlCommand *)command
 {
     IMMSlackerClient *immSlackerClient = [IMMSlackerClient sharedInstance];
+    
+    if (!immSlackerClient.SlackAccessToken) {
+        immSlackerClient.SlackAccessToken = [self getStoredAccessCode];
+    }
     
     BOOL excludeArchived = [command.arguments objectAtIndex:0];
     
@@ -228,6 +240,12 @@ NSString *currentCallBackID;
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 
+}
+
+- (NSString*) getStoredAccessCode
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return ([defaults objectForKey:@"SlackAccessToken"]);
 }
 
 + (id)sharedInstance
