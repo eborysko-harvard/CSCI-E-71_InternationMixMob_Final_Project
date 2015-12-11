@@ -19,12 +19,25 @@ public class Slacker extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("postMessage")) {
-            String message = args.getString(0);
-            this.postMessage(message, callbackContext);
+            final String message = args.getString(0);
+            final Slacker slacker = this;
+            final CallbackContext cc = callbackContext;
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    slacker.postMessage(message, cc);
+                }
+            });
         }
         else if (action.equals("getChannelList")) {
-            boolean excludeArchivedChannels = args.getBoolean(0);
-            this.getChannelList(excludeArchivedChannels, callbackContext);
+            final boolean excludeArchivedChannels = args.getBoolean(0);
+            final Slacker slacker = this;
+            final CallbackContext cc = callbackContext;
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    slacker.getChannelList(excludeArchivedChannels, cc);
+                }
+            });   
+            
         }
         return false;
     }
