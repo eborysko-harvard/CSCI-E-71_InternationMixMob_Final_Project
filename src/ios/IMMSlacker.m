@@ -112,7 +112,7 @@ NSString *currentCallBackID;
         
         [immSlackerClient postMessage:channelID :message];
         
-        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         
     }
@@ -173,8 +173,16 @@ NSString *currentCallBackID;
     BOOL excludeArchived = [command.arguments objectAtIndex:0];
     
     NSDictionary *jsonObj = [immSlackerClient getChannelList:excludeArchived ];
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObj
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
-                                                  messageAsDictionary:jsonObj];
+                                                  messageAsString:jsonString];
     
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }

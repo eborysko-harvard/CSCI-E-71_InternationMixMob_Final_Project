@@ -40,10 +40,10 @@
     <header-file src="src/ios/IMMSlacker.h" />
     <source-file src="src/ios/IMMSlacker.m"/>
     <framework src="src/ios/libs/IMMSlackerClient.framework" custom="true" />
-    
+    <!--
     <preference name="SLACK_CLIENT_ID"/>
     <preference name="SLACK_CLIENT_SECRET"/>
-    
+    -->
     <config-file target="*-Info.plist" parent="CFBundleURLTypes">
         <array>
             <dict>
@@ -63,7 +63,7 @@
                 <string>SlackClientID</string>
                 <key>CFBundleURLSchemes</key>
                 <array>
-                    <string>$SLACK_CLIENT_ID</string>
+                    <string>10020492535.14066700832</string>
                 </array>
             </dict>
             <dict>
@@ -73,7 +73,7 @@
                 <string>SlackClientSecret</string>
                 <key>CFBundleURLSchemes</key>
                 <array>
-                    <string>$SLACK_CLIENT_SECRET</string>
+                    <string>75d676a163b2e485f8428a1b0d1f710c</string>
                 </array>
             </dict>
         </array>
