@@ -12,7 +12,7 @@ init: function (options) {
     return new Slacker(options);
 },
 
-postMessage: function (successCallback, errorCallback, message) {
+postMessage: function (successCallback, errorCallback, message, channelId) {
     if (successCallback == null) {
         successCallback = function () {
         }
@@ -21,7 +21,11 @@ postMessage: function (successCallback, errorCallback, message) {
         errorCallback = function () {
         }
     }
-    exec(successCallback, errorCallback, pluginName, 'postMessage', [message]);
+    var args = [];
+    args.push(message);
+    if (channelId)
+      args.push(channelId);
+    exec(successCallback, errorCallback, pluginName, 'postMessage', args);
 },
 
 // successCallback(channels[])

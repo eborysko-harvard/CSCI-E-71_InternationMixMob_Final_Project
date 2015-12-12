@@ -20,11 +20,17 @@ public class Slacker extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("postMessage")) {
             final String message = args.getString(0);
+            final String channelId;
+            // check for our channelId
+            if (args.length() > 1)
+                channelId = args.getString(1);
+            else
+                channelId = immTestChannel;
             final Slacker slacker = this;
             final CallbackContext cc = callbackContext;
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
-                    slacker.postMessage(message, cc);
+                    slacker.postMessage(message, channelId, cc);
                 }
             });
             return true;
@@ -43,8 +49,8 @@ public class Slacker extends CordovaPlugin {
         return false;
     }
 
-    private void postMessage(String message, CallbackContext callbackContext) {
-        String response = slackerClient.postMessage(token, immTestChannel, message);
+    private void postMessage(String message, String channelId, CallbackContext callbackContext) {
+        String response = slackerClient.postMessage(token, channelId, message);
         if (response.contains("\"ok\":true"))
             callbackContext.success(message);
         else
