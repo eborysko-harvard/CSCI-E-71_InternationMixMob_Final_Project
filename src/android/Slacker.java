@@ -21,12 +21,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import edu.cscie71.imm.app.slacker.client.ISlackerClient;
 import edu.cscie71.imm.app.slacker.client.SlackerClient;
+import org.json.JSONObject;
 
 public class Slacker extends CordovaPlugin {
 
     private static String TAG = "Slacker";
     private ISlackerClient slackerClient = new SlackerClient();
-    private String token = "xoxp-10020492535-10036686290-14227963249-1cb545e1ae";
+    private String token = "";
     private String immTestChannel = "C0F6U0R5E";
     private String authURL = "https://slack.com/oauth/authorize";
     private static final String PREFS = "Slacker";
@@ -228,6 +229,14 @@ public class Slacker extends CordovaPlugin {
                             public void run() {
                                 String response = slackerClient.getOAuthToken(slackClientID, slackClientSecret, code);
                                 Log.d(TAG, "Response is " + response);
+                                try {
+                                    JSONObject json = new JSONObject(response);
+                                    token = json.getString("access_token");
+                                } catch (JSONException e) {
+                                    Log.e(TAG, "Something went wrong parsing the OAuth response");
+                                }
+
+
                             }
                         });
                     }
