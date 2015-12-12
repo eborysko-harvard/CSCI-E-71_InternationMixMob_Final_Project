@@ -240,6 +240,10 @@ public class Slacker extends CordovaPlugin {
                                 }
                             }
                         });
+                    } else if (pair.contains("error")) {
+                        // This will happen when the user hits cancel
+                        closeAuthScreen();
+                        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR));
                     }
                 }
             }
