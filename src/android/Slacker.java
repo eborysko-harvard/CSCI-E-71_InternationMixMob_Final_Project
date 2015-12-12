@@ -22,18 +22,18 @@ import org.json.JSONObject;
 
 public class Slacker extends CordovaPlugin {
 
-    private static String TAG = "Slacker";
+    private static final String TAG = "Slacker";
+    private static final String PREFS = "Slacker";
+
     private ISlackerClient slackerClient = new SlackerClient();
     private String token = "";
     private String immTestChannel = "C0F6U0R5E";
     private String authURL = "https://slack.com/oauth/authorize";
-    private static final String PREFS = "Slacker";
     private String slackClientID = "";
     private String slackClientSecret = "";
     private String scope = "channels:read chat:write:user chat:write:bot";
     private Dialog dialog;
     private CallbackContext callbackContext;
-
     private WebView inAppWebView;
 
     @Override
@@ -47,6 +47,7 @@ public class Slacker extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        token = getOAuthToken();
         if (action.equals("postMessage")) {
             final String message = args.getString(0);
             final String channelId;
@@ -207,7 +208,7 @@ public class Slacker extends CordovaPlugin {
         Context context = cordova.getActivity();
         SharedPreferences prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         // Return null as default value
-        return prefs.getString("token", null);
+        return prefs.getString("token", "");
     }
 
     /**
@@ -230,6 +231,7 @@ public class Slacker extends CordovaPlugin {
                                 try {
                                     JSONObject json = new JSONObject(response);
                                     token = json.getString("access_token");
+                                    storeOAuthToken(token);
                                     closeAuthScreen();
                                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
                                 } catch (JSONException e) {
