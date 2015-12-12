@@ -13,10 +13,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
-import org.apache.cordova.CordovaInterface;
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import edu.cscie71.imm.app.slacker.client.ISlackerClient;
@@ -35,6 +32,7 @@ public class Slacker extends CordovaPlugin {
     private String slackClientSecret = "";
     private String scope = "channels:read chat:write:user chat:write:bot";
     private Dialog dialog;
+    private CallbackContext callbackContext;
 
     private WebView inAppWebView;
 
@@ -69,11 +67,11 @@ public class Slacker extends CordovaPlugin {
             });
         } else if (action.equals("slackAuthenticate")) {
             final Slacker slacker = this;
-            final CallbackContext cc = callbackContext;
+            this.callbackContext = callbackContext;
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    slacker.openAuthScreen(cc);
+                    slacker.openAuthScreen();
                 }
             });
         } else {
@@ -116,11 +114,7 @@ public class Slacker extends CordovaPlugin {
        specific language governing permissions and limitations
        under the License.
     */
-    private void openAuthScreen(CallbackContext callbackContext) {
-        Log.d("Slacker", "Before auth success");
-        //callbackContext.success("auth success");
-        Log.d("Slacker", "After auth success");
-
+    private void openAuthScreen() {
         Runnable runnable = new Runnable() {
             @SuppressLint("NewApi")
             public void run() {
@@ -231,8 +225,10 @@ public class Slacker extends CordovaPlugin {
                                     JSONObject json = new JSONObject(response);
                                     token = json.getString("access_token");
                                     closeAuthScreen();
+                                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
                                 } catch (JSONException e) {
                                     Log.e(TAG, "Something went wrong parsing the OAuth response");
+                                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION));
                                 }
                             }
                         });
