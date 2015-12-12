@@ -226,7 +226,7 @@ public class Slacker extends CordovaPlugin {
                         cordova.getThreadPool().execute(new Runnable() {
                             @Override
                             public void run() {
-                                String response = slackerClient.getOAuthToken(slackClientID, slackClientSecret, code, "");
+                                String response = slackerClient.getOAuthToken(slackClientID, slackClientSecret, code);
                                 Log.d(TAG, "Response is " + response);
                             }
                         });
