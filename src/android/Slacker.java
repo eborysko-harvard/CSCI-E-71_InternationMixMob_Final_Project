@@ -24,6 +24,7 @@ import edu.cscie71.imm.app.slacker.client.SlackerClient;
 
 public class Slacker extends CordovaPlugin {
 
+    private static String TAG = "Slacker";
     private ISlackerClient slackerClient = new SlackerClient();
     private String token = "xoxp-10020492535-10036686290-14227963249-1cb545e1ae";
     private String immTestChannel = "C0F6U0R5E";
@@ -31,6 +32,7 @@ public class Slacker extends CordovaPlugin {
     private static final String PREFS = "Slacker";
     private String slackClientID = "";
     private String slackClientSecret = "";
+    private String scope = "channels:read chat:write:user chat:write:bot";
     private Dialog dialog;
 
     private WebView inAppWebView;
@@ -66,10 +68,11 @@ public class Slacker extends CordovaPlugin {
             });
         } else if (action.equals("slackAuthenticate")) {
             final Slacker slacker = this;
-            cordova.getThreadPool().execute(new Runnable() {
+            final CallbackContext cc = callbackContext;
+            cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    slacker.openAuthScreen(callbackContext);
+                    slacker.openAuthScreen(cc);
                 }
             });
         } else {
@@ -138,7 +141,7 @@ public class Slacker extends CordovaPlugin {
                 settings.setJavaScriptEnabled(true);
                 settings.setJavaScriptCanOpenWindowsAutomatically(true);
 
-                inAppWebView.loadUrl(authURL+"?client_id="+slackClientID+"&scope=channels:read");
+                inAppWebView.loadUrl(authURL + "?client_id=" + slackClientID + "&scope=" + scope);
                 inAppWebView.getSettings().setLoadWithOverviewMode(true);
                 inAppWebView.getSettings().setUseWideViewPort(true);
                 inAppWebView.requestFocus();
@@ -169,13 +172,25 @@ public class Slacker extends CordovaPlugin {
         this.cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                childView.setWebViewClient(new WebViewClient());
+                childView.setWebViewClient(new WebViewClient() {
+                    // NB: wait for about:blank before dismissing
+                    public void onPageFinished(WebView view, String url) {
+                        if (dialog != null) {
+                            dialog.dismiss();
+                        }
+                    }
+                });
                 // NB: From SDK 19: "If you call methods on WebView from any thread
                 // other than your app's UI thread, it can cause unexpected results."
                 // http://developer.android.com/guide/webapps/migrating.html#Threads
                 childView.loadUrl("about:blank");
             }
         });
+    }
+
+    @Override
+    public void onReset() {
+        closeAuthScreen();
     }
 
     /* License end */
@@ -198,7 +213,28 @@ public class Slacker extends CordovaPlugin {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
-            Log.d("Slacker", "Page load started");
+            Log.d(TAG, "Page started URL is " + url);
+            if (url.contains("response?")) {
+                Log.d(TAG, "URL contains response?");
+                String[] pairs = url.split("&");
+                for (String pair : pairs) {
+                    if (pair.contains("code")) {
+                        Log.d(TAG, "Getting token from client");
+                        final String code = pair.substring(pair.indexOf("code=") + 5);
+                        Log.d(TAG, "Code is " + code);
+
+                        cordova.getThreadPool().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                String response = slackerClient.getOAuthToken(slackClientID, slackClientSecret, code, "");
+                                Log.d(TAG, "Response is " + response);
+                            }
+                        });
+                    }
+                }
+                closeAuthScreen();
+            }
+            //Page is slackerrefapp://response?code=10020492535.16524606209.1880a4fff0&state=
         }
     }
 }
