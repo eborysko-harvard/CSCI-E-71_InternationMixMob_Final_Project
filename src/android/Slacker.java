@@ -65,8 +65,13 @@ public class Slacker extends CordovaPlugin {
                 }
             });
         } else if (action.equals("slackAuthenticate")) {
-            Log.d("Slacker", "In execute for slackAuthenticate");
-            this.openAuthScreen(callbackContext);
+            final Slacker slacker = this;
+            cordova.getThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    slacker.openAuthScreen(callbackContext);
+                }
+            });
         } else {
             return false;
         }
