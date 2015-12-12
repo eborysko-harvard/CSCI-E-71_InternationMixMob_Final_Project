@@ -210,40 +210,35 @@ public class Slacker extends CordovaPlugin {
         return prefs.getString("token", null);
     }
 
+    /**
+     * WebViewClient that detects callback URLs from Slack and stores the OAuth token
+     */
     public class AuthBrowser extends WebViewClient {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
-            Log.d(TAG, "Page started URL is " + url);
             if (url.contains("response?")) {
-                Log.d(TAG, "URL contains response?");
                 String[] pairs = url.split("&");
                 for (String pair : pairs) {
                     if (pair.contains("code")) {
-                        Log.d(TAG, "Getting token from client");
                         final String code = pair.substring(pair.indexOf("code=") + 5);
-                        Log.d(TAG, "Code is " + code);
 
                         cordova.getThreadPool().execute(new Runnable() {
                             @Override
                             public void run() {
                                 String response = slackerClient.getOAuthToken(slackClientID, slackClientSecret, code);
-                                Log.d(TAG, "Response is " + response);
                                 try {
                                     JSONObject json = new JSONObject(response);
                                     token = json.getString("access_token");
+                                    closeAuthScreen();
                                 } catch (JSONException e) {
                                     Log.e(TAG, "Something went wrong parsing the OAuth response");
                                 }
-
-
                             }
                         });
                     }
                 }
-                closeAuthScreen();
             }
-            //Page is slackerrefapp://response?code=10020492535.16524606209.1880a4fff0&state=
         }
     }
 }
