@@ -133,7 +133,6 @@ public class Slacker extends CordovaPlugin {
                 LinearLayout mainLayout = new LinearLayout(cordova.getActivity());
                 mainLayout.setOrientation(LinearLayout.VERTICAL);
 
-                Log.d("Slacker", "In runnable for auth");
                 inAppWebView = new WebView(cordova.getActivity());
                 inAppWebView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
                 inAppWebView.setWebChromeClient(new WebChromeClient());
