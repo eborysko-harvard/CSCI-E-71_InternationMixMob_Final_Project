@@ -29,117 +29,104 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
 	</head>
 
-<body>
-	<!-- Wrap the entire slide show in a div using the "reveal" class. -->
-	<div class="reveal">
-		<!-- Wrap all slides in a single "slides" class -->
-		<div class="slides">
-
-			<!-- ALL SLIDES GO HERE -->
-			<!-- Each section element contains an individual slide -->
-			<section>
-				<h2>Slack Services plugin for Apache Cordova</h2>
-				<p>
-				<small>Created by <a href="https://github.com/InternationalMixMob">International Mix Mob</a> </small>
-				</p>
-			</section>
-
-			<section id="team_members">
-				<h3>InternationalMixMob Team Members</h3>
-				<p>
-					<ul>
-						<li>Cornell Wright, iOS Developer</li>
-						<li>Alpana Barua, Scrum Master & part-time iOS Developer</li>
-						<li>Jeffry Pincus, Android Developer</li>
-						<li>Frederick Jansen, Android & Hybrid Developer</li>
-						<li>Manoj Shenoy, iOS Developer</li>
-						<li>Justin Sanford, Android & Hybrid Developer</li>
-						<li>Evan Borysko, Product Owner & part-time iOS Developer</li>
-					</ul>
-				</p>
-				<p>Product owner: Evan Borysko</p>
-				<small>Scrum Master: Alpana Barua
-			    </small></p>
-			</section>
-
-		    <section id="demo">
-		    	<h2>Demo</h2>
-		    	<iframe width="853" height="480" src="https://www.youtube.com/embed/wDJJRbsdaSw?start=13&amp;rel=0&amp;fs=0&amp;controls=1&amp;showinfo=0&amp;" frameborder="0" allowfullscreen="false"></iframe>
-            </section>
-
-			<section id="product_vision">
-				<section>
-				<h3>Product Vision</h3>
-				<p>Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application.</p>
+	<body>
+		<!-- Wrap the entire slide show in a div using the "reveal" class. -->
+		<div class="reveal">
+			<!-- Wrap all slides in a single "slides" class -->
+			<div class="slides">
+				<!-- ALL SLIDES GO HERE -->
+				<!-- Each section element contains an individual slide -->
+				<section id="title">
+					<h2>Slack Services plugin for Apache Cordova</h2>
+					<p>
+						<small>Created by <a href="https://github.com/InternationalMixMob">International Mix Mob</a></small>
+					</p>
 				</section>
-				<section>
-					<p>The Plugin Features</p>
-					<small><ul>
-						<li> Authorization service</li>
-						<li>Identity Information</li>
-						<li>Selecting Channels</li>
-						<li>Posting Messages</li>
-						<li>Presence Awareness</li>
-						<li>Advance Content sharing via Slash Commands</li>
-						<li>An example Cordova application to demostrate the plugin's features</li>
-					</ul></small>
+
+				<section id="team_members">
+					<h3>InternationalMixMob Team Members</h3>
+					<p>
+						<ul>
+							<li>Cornell Wright, iOS Developer</li>
+							<li>Alpana Barua, Scrum Master &amp; part-time iOS Developer</li>
+							<li>Jeffry Pincus, Android Developer</li>
+							<li>Frederick Jansen, Android &amp; Hybrid Developer</li>
+							<li>Manoj Shenoy, iOS Developer</li>
+							<li>Justin Sanford, Android &amp; Hybrid Developer</li>
+							<li>Evan Borysko, Product Owner &amp; part-time iOS Developer</li>
+						</ul>
+					</p>
+					<p>Product owner: Evan Borysko</p>
+					<small>Scrum Master: Alpana Barua</small>
 				</section>
-			</section>
 
-			<section>
-					<section id="stakeholders">
-						<h3>Stakeholders</h3>
-						<p align="left"><span class="fragment"><small><b>Mobile App Developer: Nora from Evan's Staff</b> <br>needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.</small></span></p>
+			    <section id="demo">
+			    	<h2>Demo</h2>
+			    	<iframe width="853" height="480" src="https://www.youtube.com/embed/wDJJRbsdaSw?start=13&amp;rel=0&amp;fs=0&amp;controls=1&amp;showinfo=0&amp;" frameborder="0" allowfullscreen="false"></iframe>
+	            </section>
 
-						<p align="left"><span class="fragment"><small><b>Mobile Hybrid Web Developer - Ajay from Evan's Staff</b><br>needs a plugin that is platform agnostic, authentication should be fast and reliable with clear error descriptions.</small></span> </p>
-						
-						<p align="left"><span class="fragment"><small><b>Product Owner - Evan</b><br>needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.</small></span> 
-						
+				<section id="product_vision">
+					<section>
+						<h3>Product Vision</h3>
+						<p>Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application.</p>
 					</section>
-		    </section>
+					<section>
+						<h3>The Plugin Features</h3>
+						<ul>
+							<li> Authorization service</li>
+							<li>Identity Information</li>
+							<li>Selecting Channels</li>
+							<li>Posting Messages</li>
+							<li>Presence Awareness</li>
+							<li>Advance Content sharing via Slash Commands</li>
+							<li>An example Cordova application to demostrate the plugin's features</li>
+						</ul>
+					</section>
+				</section>
 
-		    <section id="scrum">
-				<h3>Agile/Scrum </h3>
-				<p>
+				<section id="stakeholders">
+					<h3>Stakeholders</h3>
+					<p align="left"><span class="fragment"><small><strong>Mobile App Developer: Nora from Evan's Staff</strong> <br>needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.</small></span></p>
+					<p align="left"><span class="fragment"><small><strong>Mobile Hybrid Web Developer - Ajay from Evan's Staff</strong><br>needs a plugin that is platform agnostic, authentication should be fast and reliable with clear error descriptions.</small></span> </p>
+					<p align="left"><span class="fragment"><small><strong>Product Owner - Evan</strong><br>needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.</small></span>
+				</section>
+
+				<section id="scrum">
+					<h3>Agile/Scrum </h3>
 					<ul>
 						<li>Sprint Backlog</li>
 						<li>Daily Standups</li>
 						<li>Pairing/Mobbing</li>
-						<li>Sprint Reviews & Retrospectives</li>
+						<li>Sprint Reviews &amp; Retrospectives</li>
 					</ul>
-				</p>
-			</section>
+				</section>
 
-		    <section id="tools">
-				<h3>Tools</h3>
-				<p>
-					<ul>
-						<li>JIRA - Backlog and Sprint Boards</li>
-						<li>Pointing Poker</li>
-						<li>Travis-CI Dashboard</li>
-						<li>Circle-CI Dasboard</li>
-						<li>Coveralls</li>
-						<li>Review Ninja</li>
-						<li>Hockey App</li>
-					</ul>
-				</p>
-			</section>
-					
+				<section id="tools">
+					<h3>Tools</h3>
+						<ul>
+							<li>JIRA - Backlog and Sprint Boards</li>
+							<li>Pointing Poker</li>
+							<li>Travis-CI Dashboard</li>
+							<li>Circle-CI Dasboard</li>
+							<li>Coveralls</li>
+							<li>Review Ninja</li>
+							<li>Hockey App</li>
+						</ul>
+				</section>
+
+				<section data-background="img/drawing.svg"></section>
+			</div>
 		</div>
-	</div>
 
-	<script src="bower_components/reveal.js/lib/js/head.min.js"></script>
-	<script src="bower_components/reveal.js/js/reveal.js"></script>
+		<script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+		<script src="bower_components/reveal.js/js/reveal.js"></script>
 
-	<script>
-		// Required, even if empty.
-		Reveal.initialize({
-		});
-	</script>
-</body>
+		<script>
+			// Required, even if empty.
+			Reveal.initialize({
+			});
+		</script>
+	</body>
 </html>
