@@ -58,7 +58,7 @@
                 <string>edu.cscie71.imm.app</string>
                 <key>CFBundleURLSchemes</key>
                 <array>
-                    <string>slackertest</string>
+                    <string>slackerrefapp</string>
                 </array>
             </dict>
             <dict>
@@ -68,7 +68,7 @@
                 <string>SlackClientID</string>
                 <key>CFBundleURLSchemes</key>
                 <array>
-                    <string>$SLACK_CLIENT_ID</string>
+                    <string>10020492535.14066700832</string>
                 </array>
             </dict>
             <dict>
@@ -78,7 +78,7 @@
                 <string>SlackClientSecret</string>
                 <key>CFBundleURLSchemes</key>
                 <array>
-                    <string>$SLACK_CLIENT_SECRET</string>
+                    <string>75d676a163b2e485f8428a1b0d1f710c</string>
                 </array>
             </dict>
         </array>

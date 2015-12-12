@@ -25,10 +25,11 @@
 
 - (void) slackDisconnect:(CDVInvokedUrlCommand *) command;
 
+- (void) getChannelList:(CDVInvokedUrlCommand *) command;
 
 #pragma mark - Slack_Utility
 
-
+-(NSString*) getStoredAccessCode;
 
 + (NSString*) getStoredCodes : (NSString* ) key;
 
