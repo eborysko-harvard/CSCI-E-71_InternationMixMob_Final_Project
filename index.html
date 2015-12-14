@@ -40,21 +40,24 @@
         <!-- ALL SLIDES GO HERE -->
         <!-- Each section element contains an individual slide -->
         <section>
-          <h2>Slack Services plugin for Apache Cordova</h2>
+          <h1>Slack Services plugin for Apache Cordova</h1>
           <small>Created by <a href="https://github.com/InternationalMixMob">International Mix Mob</a></small>
         </section>
 
         <section id="product">
 
           <section id="product_vision">
-            <h2>Slacker</h2>
+            <h1>Slacker Plugin</h1>
             <h3>Product Vision</h3>
             <p>Create Cordova plugins for iOS and Android to enable Slack services within development of any hybrid mobile application.</p>
           </section>
 
+          <section id="diagram">
+            <img src="img/overview_diagram.svg" class="diagram stretch"/>
+          </section>
+
           <section id="product_features">
-            <h2>Slacker</h2>
-            <h3>Plugin Features</h3>
+            <h2>Key Features of the Slacker Plugin</h2>
             <ul>
               <li>Authorization service</li>
               <li>Identity Information</li>
@@ -66,9 +69,21 @@
             </ul>
           </section>
 
-          <section id="diagram">
-            <img src="img/overview_diagram.svg" class="diagram stretch"/>
-            <div class="center"><small>Context Diagram</small></div>
+          <section id="stakeholders">
+            <h2>Who did we built this for?</h2>
+            <h4>Stakeholders</h4>
+            <p align="left"><span class="fragment"><small>
+              <strong>Mobile App Developer: Nora from Evan's Staff</strong><br>
+              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+            </small></span></p>
+            <p align="left"><span class="fragment"><small>
+              <strong>Mobile Hybrid Web Developer - Ajay from Evan's Staff</strong><br>
+              needs a plugin that is platform agnostic, authentication should be fast and reliable with clear error descriptions.<br>
+            </small></span></p>
+            <p align="left"><span class="fragment"><small>
+              <strong>Product Owner - Evan</strong><br>
+              needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.
+            </small></span></p>
           </section>
 
           <section id="android_demo">
@@ -86,16 +101,22 @@
           </section>
 
           <section id="tryit1">
-            <h3>Try It Out</h3>
-            <ul>
-              <li>cordova plugin add https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.git
-                <ul>
-                  <li>--variable SLACK_CLIENT_ID=xxx</li>
-                  <li>--variable SLACK_CLIENT_SECRET=xxx</li>
-                </ul>
-              </li>
-              <li>cordova run {android|ios}
-            </ul>
+            <h2>Try It for Yourself</h2>
+            <small>
+            <ol>
+              <li><code>$ npm install -g cordova</code></li>
+              <li><code>$ cordova create YourAppName</code></li>
+              <li><code>$ cd YourAppName</code><br>
+                  <code>$ cordova platform add {android|ios}</code></li>
+              <li><code>$ cordova plugin add \ </code><br>
+                  <code>&nbsp;&nbsp;https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.git \</code><br>
+                  <code>&nbsp;&nbsp;--variable SLACK_CLIENT_ID=xxx \</code><br>
+                  <code>&nbsp;&nbsp;--variable SLACK_CLIENT_SECRET=xxx </code></li>
+              <li><code>INSERT SIMPLE CODE TO TRIGGER LOGIN</code></li>
+              <li><code>$ cordova run {android|ios}</code></li>
+            </ol>
+            <p>Node.js is required to use Apache Cordova. You must also have iOS or Android development tools installed</p>
+            </small>
           </section>
         </section>
 
@@ -196,20 +217,76 @@
         </section>
 
         <section id="how">
-          <h2>How it comes together</h2>
+          <section id="parts">
+            <h2>How it comes together</h2>
+            <ul>
+              <li>Architectual Context</li>
+              <li>Coding</li>
+              <li>Tests &amp; Code Coverage</li>
+              <li>Automation</li>
+              <li>Continous Delivery</li>
+            </ul>
+          </section>
+
+          <section id="arch">
+            <h2>Architectual Context</h2>
+            <img src="img/overview_diagram.svg" class="diagram stretch"/>
+            <div class="center"><small>Context Diagram</small></div>
+          </section>
+          <section id="sig">
+            <h2>Significant Components</h2>
+            <p align="left"><span class="fragment"><small>
+              <strong><u>Slacker Client</u></strong><br>
+              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+            </small></span></p>
+            <p align="left"><span class="fragment"><small>
+              <strong><u>Slacker Cordova Plugin</u></strong><br>
+              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+            </small></span></p>
+            <p align="left"><span class="fragment"><small>
+              <strong><u>Slacker Reference Application</u></strong><br>
+              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+            </small></span></p>
+          </section>
+          <section id="sig">
+            <h2>Significant Dependencies</h2>
+            <p align="left"><span class="fragment"><small>
+              <strong><u>Slack API</u></strong><br>
+              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+            </small></span></p>
+            <p align="left"><span class="fragment"><small>
+              <strong><u>Cordova Framework</u></strong><br>
+              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+            </small></span></p>
+          </section>
+
+          <section id="code">
+            <h2>Code</h2>
+            <p>GitHub - International Mix Mob organization</p>
+                <ul>
+                  <li><strong>7</strong> Repositories</li>
+                  <li><strong>XXXX</strong> Lines of Code</li>
+                  <li><strong>XX</strong> Pull Requests</li>
+                  <li><strong>8</strong> Languages: <br><small>Java, Objective-C, JavaScript, HTML, Ruby, Groovy, YML, &amp; Shell scripting</small></li>
+                </ul>
+          </section>
+
+          <section id="tests">
+            <h2>Tests</h2>
+          </section>
 
           <section id="code_coverage">
-            <h4>Code Coverage Dashboard</h4>
+            <h3>Code Coverage Dashboard</h3>
             <img src="img/Coveralls-Dashboard.png" class="diagram"/>
             <div class="center"><small><a href="https://coveralls.io/github/InternationalMixMob">https://coveralls.io/github/InternationalMixMob</a></small></div>
           </section>
           <section id="code_coverage2">
-            <h4>Slacker Cordova Plugin - Code Coverage</h4>
+            <h3>Slacker Cordova Plugin - Code Coverage</h3>
             <img src="img/Coveralls-Coverage-Example.png" class="diagram"/>
             <div class="center"><small><a href="https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin">https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin</a></small></div>
           </section>
           <section id="code_coverage3">
-            <h4>Other Components Code Coverage </h4>
+            <h3>Other Components Code Coverage </h3>
             <ul>
               <li><a href="https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android">Slacker Client - Android</a><a href='https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android?branch=master'><img src='https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/badge.svg?branch=master&service=github' alt='Coverage Status' /></a></li>
               <li><a href="https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS">Slacker Client - iOS</a>**<a href='https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS?branch=master'><img src='https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS/badge.svg?branch=master&service=github' alt='Coverage Status' /></a></li>
@@ -217,61 +294,69 @@
               <li>Slacker Reference App - iOS &amp; Andriod</a>
             </ul>
           </section>
-
           <section id="ios_code_cover">
-            <h4>iOS Code Coverage in Xcode</h4>
+            <h3>iOS Code Coverage in Xcode</h3>
             <img src="img/iOS-Coverage.png" class="diagram"/>
+            <p>Xcode Code Coverage reports 100%</p>
+            <p><small>We strived for universal code coverage dashboard, but found challenges unifiying 3 languages tools</small></p>
           </section>
 
+          <section id="auto">
+            <h3>Automation</h3>
+          </section>
 
+          <section id="cd">
+            <h3>Continous Delivery</h3>
+          </section>
 
         </section>
 
         <section id="team">
             <h3>InternationalMixMob Team Members</h3>
             <ul>
-              <li>Cornell Wright, iOS Developer</li>
-              <li>Alpana Barua, Scrum Master &amp; part-time iOS Developer</li>
-              <li>Jeffry Pincus, Android Developer</li>
-              <li>Frederick Jansen, Android &amp; Hybrid Developer</li>
-              <li>Manoj Shenoy, iOS Developer</li>
-              <li>Justin Sanford, Android &amp; Hybrid Developer</li>
-              <li>Evan Borysko, Product Owner &amp; part-time iOS Developer</li>
+              <li><strong>Cornell Wright</strong>, iOS Developer</li>
+              <li><strong>Alpana Barua</strong>, Scrum Master &amp; part-time iOS Developer</li>
+              <li><strong>Jeffry Pincus</strong>, Android Developer</li>
+              <li><strong>Frederick Jansen</strong>, Android, Hybrid Developer &amp; DevOps</li>
+              <li><strong>Manoj Shenoy</strong>, iOS Developer</li>
+              <li><strong>Justin Sanford</strong>, Android &amp; Hybrid Developer</li>
+              <li><strong>Evan Borysko</strong>, Product Owner, part-time iOS/Hybrid Developer, &amp; DevOps</li>
             </ul>
-            <p>Product owner: Evan Borysko</p>
-            <small>Scrum Master: Alpana Barua</small>
+            <br>
+            <div><small>Product owner: Evan Borysko</small><br>
+            <small>Scrum Master: Alpana Barua</small></div>
 
         </section>
 
-        <section id="stakeholders">
-          <h3>Stakeholders</h3>
-          <p align="left"><span class="fragment"><small>
-            <strong>Mobile App Developer: Nora from Evan's Staff</strong><br>
-            needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
-          </small></span></p>
-          <p align="left"><span class="fragment"><small>
-            <strong>Mobile Hybrid Web Developer - Ajay from Evan's Staff</strong><br>
-            needs a plugin that is platform agnostic, authentication should be fast and reliable with clear error descriptions.<br>
-          </small></span></p>
-          <p align="left"><span class="fragment"><small>
-            <strong>Product Owner - Evan</strong><br>
-            needs something that is fast to implement, needs to have few impediments to getting a product to market and enhances the productivity of the developer team.
-          </small></span></p>
-        </section>
 
         <section id="tools">
-          <h3>Tools</h3>
-          <ul>
-            <li>JIRA - Backlog and Sprint Boards</li>
-            <li>Travis-CI Dashboard</li>
-            <li>Circle-CI Dasboard</li>
-            <li>Coveralls</li>
-            <li>Review Ninja</li>
-            <li>Hockey App</li>
-            <li>Doodle</li>
-            <li>Hackpad</li>
-            <li>Pointing Poker</li>
-          </ul>
+          <h2>Tools</h2>
+          <table>
+            <tr>
+              <td>
+                <ul>
+                  <li>JIRA - Backlog and Sprint Boards</li>
+                  <li>GitHub</li>
+                  <li>Review Ninja</li>
+                  <li>Fastlane</li>
+                  <li>Travis-CI Dashboard</li>
+                  <li>Circle-CI Dasboard</li>
+                  <li>Coveralls</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Hockey App</li>
+                  <li>Doodle</li>
+                  <li>Hackpad</li>
+                  <li>Pointing Poker</li>
+                  <li>Reveal.js</li>
+                  <li>Air Parrot</li>
+                  <li>YouTube</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
         </section>
 
         <section id="end">
@@ -297,17 +382,13 @@
           </section>
 
           <section id="questions">
-            <h2>Questions</h2>
+            <h1>Questions</h1>
 
           </section>
 
           <section id="onemore">
-            <h2>One More Thing</h2>
-
-          </section>
-
-          <section id="tryit2">
-            <h2>Try It Out</h2>
+            <h1>Oh, and One More Thing...</h1>
+            <p>a live demo?</p>
 
           </section>
 
