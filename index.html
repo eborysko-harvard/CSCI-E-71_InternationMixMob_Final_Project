@@ -87,6 +87,15 @@
 
           <section id="tryit1">
             <h3>Try It Out</h3>
+            <ul>
+              <li>cordova plugin add https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.git
+                <ul>
+                  <li>--variable SLACK_CLIENT_ID=xxx</li>
+                  <li>--variable SLACK_CLIENT_SECRET=xxx</li>
+                </ul>
+              </li>
+              <li>cordova run {android|ios}
+            </ul>
           </section>
         </section>
 
@@ -316,6 +325,8 @@
     <script>
       // Required, even if empty.
       Reveal.initialize({
+        width: 1100,
+        height: 700
       });
     </script>
   </body>
