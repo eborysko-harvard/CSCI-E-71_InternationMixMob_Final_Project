@@ -107,13 +107,27 @@
               <li><code>$ npm install -g cordova</code></li>
               <li><code>$ cordova create YourAppName</code></li>
               <li><code>$ cd YourAppName</code></li>
-              <li><code>$ bower install</code></li>
               <li><code>$ cordova platform add {android|ios}</code></li>
               <li><code>$ cordova plugin add \ </code><br>
                   <code>&nbsp;&nbsp;https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.git \</code><br>
                   <code>&nbsp;&nbsp;--variable SLACK_CLIENT_ID=xxx \</code><br>
                   <code>&nbsp;&nbsp;--variable SLACK_CLIENT_SECRET=xxx </code></li>
-              <li><code>Slacker.authenticate(myCallback)</code></li>
+              <li>
+								Inside YourAppName/www/index.html, add:
+              	<br>
+              	<code>
+              		&nbsp;&nbsp;&lt;button id='authButton'&gt;Authenticate&lt;/button&gt;
+              	</code>
+              	<br>
+								and inside YourAppName/www/js/index.js, at the bottom add:
+                <br>
+                <code>
+                	&nbsp;&nbsp;document.getElementById('authButton').onclick = function() {<br>
+                	&nbsp;&nbsp;&nbsp;&nbsp;var success = function() { // do what you want with success };<br>
+                	&nbsp;&nbsp;&nbsp;&nbsp;Slacker.authenticate(success);<br>
+                  &nbsp;&nbsp;};
+                </code>
+              </li>
               <li><code>$ cordova run {android|ios}</code></li>
             </ol>
             <p>Node.js is required to use Apache Cordova. You must also have iOS or Android development tools installed</p>
