@@ -87,7 +87,7 @@
           </section>
 
           <section id="android_demo">
-            <iframe width="853" height="480" src="https://www.youtube.com/embed/wDJJRbsdaSw?start=13&amp;rel=0&amp;fs=0&amp;controls=1&amp;showinfo=0&amp;" frameborder="0" allowfullscreen="false"></iframe>
+            <iframe width="853" height="480" src="https://www.youtube.com/embed/3IxOrrKnPm4" frameborder="0" allowfullscreen></iframe>
             <div class="center"><small>Android Demo</small></div>
           </section>
 
@@ -106,13 +106,14 @@
             <ol>
               <li><code>$ npm install -g cordova</code></li>
               <li><code>$ cordova create YourAppName</code></li>
-              <li><code>$ cd YourAppName</code><br>
-                  <code>$ cordova platform add {android|ios}</code></li>
+              <li><code>$ cd YourAppName</code></li>
+              <li><code>$ bower install</code></li>
+              <li><code>$ cordova platform add {android|ios}</code></li>
               <li><code>$ cordova plugin add \ </code><br>
                   <code>&nbsp;&nbsp;https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.git \</code><br>
                   <code>&nbsp;&nbsp;--variable SLACK_CLIENT_ID=xxx \</code><br>
                   <code>&nbsp;&nbsp;--variable SLACK_CLIENT_SECRET=xxx </code></li>
-              <li><code>INSERT SIMPLE CODE TO TRIGGER LOGIN</code></li>
+              <li><code>Slacker.authenticate(myCallback)</code></li>
               <li><code>$ cordova run {android|ios}</code></li>
             </ol>
             <p>Node.js is required to use Apache Cordova. You must also have iOS or Android development tools installed</p>
@@ -315,8 +316,8 @@
             <img src="img/iOS-Tests.png" class="diagram"/>
           </section>
           <section id="tests-rp3">
-            <h2>Plugin Tests</h2>
-            <img src="img/slacker-integration-tests2.png" class="diagram"/>
+            <h2>Plugin Integration Tests</h2>
+            <img src="img/slacker-integration-tests.png" class="diagram phone"/>
           </section>
 
           <section id="code_coverage">
@@ -359,7 +360,7 @@
                   <p>Publishing the Android App to Hockey App via Circle-CI</p>
                 </td>
                 <td>
-                  <img src="img/CD-iOS.png" class="diagram"/>
+                  <img src="img/CD-ios.png" class="diagram"/>
                   <p>Publishing the iOS App to Hockey App via Travis-CI or Desktop</p>
                 </td>
               </tr>
@@ -370,13 +371,13 @@
             <table>
               <tr>
                 <td>
-                  <img src="img/Hockey-update-example1.jpeg" class="diagram"/>
+                  <img src="img/Hockey-update-example1.jpeg" class="diagram phone"/>
                 </td>
                 <td>
-                  <img src="img/Hockey-update-example2.jpeg" class="diagram"/>
+                  <img src="img/Hockey-update-example2.jpeg" class="diagram phone"/>
                 </td>
                 <td>
-                  <img src="img/Hockey-update-example3.jpeg" class="diagram"/>
+                  <img src="img/Hockey-update-example3.jpeg" class="diagram phone"/>
                 </td>
               </tr>
             </table>
@@ -386,19 +387,15 @@
 
         <section id="team">
             <h3>InternationalMixMob Team Members</h3>
-            <ul>
-              <li><strong>Cornell Wright</strong>, iOS Developer</li>
-              <li><strong>Alpana Barua</strong>, Scrum Master &amp; part-time iOS Developer</li>
-              <li><strong>Jeffry Pincus</strong>, Android Developer</li>
-              <li><strong>Frederick Jansen</strong>, Android, Hybrid Developer &amp; DevOps</li>
-              <li><strong>Manoj Shenoy</strong>, iOS Developer</li>
-              <li><strong>Justin Sanford</strong>, Android &amp; Hybrid Developer</li>
-              <li><img style="vertical-align:middle" src="https://secure.gravatar.com/avatar/1b63239469f0576c23e246e029c1911f?size=60&default=identicon">&nbsp;<strong>Evan Borysko</strong>, Product Owner, part-time iOS/Hybrid Developer, &amp; DevOps</li>
+            <ul class="no_bullets">
+              <li><img class="diagram gravatar" src="http://wixmultimedia.com/tfd1/wp-content/uploads/2014/03/gravatar_default_550.jpg"/><strong>Cornell Wright</strong>, iOS Developer</li>
+              <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/14344a6d59f30c9b7485bcd2d6d27b5a?size=60&default=identicon"/><strong>Alpana Barua</strong>, Scrum Master &amp; part-time iOS Developer</li>
+              <li><img class="diagram gravatar" src="https://s.gravatar.com/avatar/45dbab9ff1edae570312450399917cea?s=80"/><strong>Jeffry Pincus</strong>, Android Developer</li>
+              <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/a13e67153255ff48b5e0d54bc3f042fd"/><strong>Frederick Jansen</strong>, Android, Hybrid Developer &amp; DevOps</li>
+              <li><img class="diagram gravatar" src="http://wixmultimedia.com/tfd1/wp-content/uploads/2014/03/gravatar_default_550.jpg"/><strong>Manoj Shenoy</strong>, iOS Developer</li>
+              <li><img class="diagram gravatar" src="http://wixmultimedia.com/tfd1/wp-content/uploads/2014/03/gravatar_default_550.jpg"/><strong>Justin Sanford</strong>, Android &amp; Hybrid Developer</li>
+              <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/1b63239469f0576c23e246e029c1911f?size=60&default=identicon"/><strong>Evan Borysko</strong>, Product Owner, part-time iOS/Hybrid Developer, &amp; DevOps</li>
             </ul>
-            <br>
-            <div><small>Product owner: Evan Borysko</small><br>
-            <small>Scrum Master: Alpana Barua</small></div>
-
         </section>
 
         <section id="tools">
@@ -448,7 +445,7 @@
             <h3>Top 3 Deltas</h3>
             <ul>
               <li>Project consisted of many layers; wasn't sure how the different parts would work together until Sprint 2.</li>
-              <li>Communication was challenging with a large group of busy people spread across the country.</li>
+              <li>Working with git. Git is permissive and requires advanced knowledge to use properly. There were instances where code accidentally disappeared.</li>
               <li>Getting continuous integration working across all our repos for iOS and Android was a herculian task.</li>
             </ul>
           </section>

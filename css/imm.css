@@ -4,3 +4,15 @@
     box-shadow: 0 0 0px rgba(0, 0, 0, 0) !important;
     margin: 5px 0 !important;
 }
+.gravatar {
+    vertical-align: middle !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    margin-right: 15px !important;
+}
+ul.no_bullets {
+  list-style-type: none;
+}
+.phone {
+  height: 500px !important;
+}
