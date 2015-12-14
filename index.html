@@ -107,13 +107,27 @@
               <li><code>$ npm install -g cordova</code></li>
               <li><code>$ cordova create YourAppName</code></li>
               <li><code>$ cd YourAppName</code></li>
-              <li><code>$ bower install</code></li>
               <li><code>$ cordova platform add {android|ios}</code></li>
               <li><code>$ cordova plugin add \ </code><br>
                   <code>&nbsp;&nbsp;https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.git \</code><br>
                   <code>&nbsp;&nbsp;--variable SLACK_CLIENT_ID=xxx \</code><br>
                   <code>&nbsp;&nbsp;--variable SLACK_CLIENT_SECRET=xxx </code></li>
-              <li><code>INSERT SIMPLE CODE TO TRIGGER LOGIN</code></li>
+              <li>
+								Inside YourAppName/www/index.html, add:
+              	<br>
+              	<code>
+              		&nbsp;&nbsp;&lt;button id='authButton'&gt;Authenticate&lt;/button&gt;
+              	</code>
+              	<br>
+								and inside YourAppName/www/js/index.js, at the bottom add:
+                <br>
+                <code>
+                	&nbsp;&nbsp;document.getElementById('authButton').onclick = function() {<br>
+                	&nbsp;&nbsp;&nbsp;&nbsp;var success = function() { // do what you want with success };<br>
+                	&nbsp;&nbsp;&nbsp;&nbsp;Slacker.authenticate(success);<br>
+                  &nbsp;&nbsp;};
+                </code>
+              </li>
               <li><code>$ cordova run {android|ios}</code></li>
             </ol>
             <p>Node.js is required to use Apache Cordova. You must also have iOS or Android development tools installed</p>
@@ -238,26 +252,40 @@
             <h2>Significant Components</h2>
             <p align="left"><span class="fragment"><small>
               <strong><u>Slacker Client</u></strong><br>
-              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+              Native API client to Slack's RestFul Services. It handles communication with Slack and storing or cache state on the device. The goal
+              is to simplfy the orchastration of remote communication, authorization, authentication, presistence, and error handling. Example: Oauth, 
+              Token Storage, HTTP Client, Error Handling &amp; Retry, Caching, etc...
+              <br>
+              <strong>&nbsp;- Client is writen in: Java and Objective-C</strong>
+              <br>
+              <strong>&nbsp;- Client is tested with: Junit and XCTest</strong>
             </small></span></p>
             <p align="left"><span class="fragment"><small>
               <strong><u>Slacker Cordova Plugin</u></strong><br>
-              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+              Provides a wrapper to use the Slacker client in hybrid mobile application. It provides Javascript convenience functions that focus on accessing the features of Slack API without needing to deals with the details of how remote communication, authorization, and threading is optimized.
+              <br>
+              <strong>&nbsp;- Plugin is writen in: Java, Objective-C, Javascript</strong>
+              <br>
+              <strong>&nbsp;- Plugin is tested with: Jasmine</strong>
             </small></span></p>
             <p align="left"><span class="fragment"><small>
               <strong><u>Slacker Reference Application</u></strong><br>
-              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+              Created to demostrate the use of the plugin in a typical Apache Cordova application. App contains demos of each feature of the plugin; Login, Listing Channels, Posting Messages, etc.
+              <br>
+               <strong>&nbsp;- App is writen in: Cordova, HTML5, Javascript, and CSS</strong>
             </small></span></p>
           </section>
           <section id="sig">
             <h2>Significant Dependencies</h2>
             <p align="left"><span class="fragment"><small>
               <strong><u>Slack API</u></strong><br>
-              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+              An Oauth authenticated and authorize Restful API using a JSON request/response payload to integrate and extend the Slack platform.
+              <br>
             </small></span></p>
             <p align="left"><span class="fragment"><small>
-              <strong><u>Cordova Framework</u></strong><br>
-              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+              <strong><u>Apache Cordova Framework</u></strong><br>
+              An SDK wrapper that creates app templates for hybrid mobile applications and provides to web container runtime interfaces/plugins which expose native device features. Example, access to device's camera or local storage. Cordova is the evolution of PhoneGap technology and has robust eco-system of plugin vendors and integrators using it to leverage existing enterprise developer HTML skills in mobile development.
+              <br>
             </small></span></p>
           </section>
 <!--
@@ -284,8 +312,15 @@
             <p>GitHub - <a href="https://github.com/InternationalMixMob">International Mix Mob</a> organization</p>
                 <ul>
                   <li><strong>7</strong> Repositories</li>
-                  <li><strong>XXXX</strong> Lines of Code</li>
-                  <li><strong>XX</strong> Pull Requests</li>
+                  <li><strong>3666</strong> Lines of Code  <br>
+                    <small><ul>
+                            <li>Android: 570</li>
+                            <li>iOS: 706</li>
+                            <li>Plugin: 1383</li>
+                            <li>Ref: 1007</li>
+                          </ul></small>
+                  </li>
+                  <li><strong>68</strong> Pull Requests</li>
                   <li><strong>8</strong> Languages: <br><small>Java, Objective-C, JavaScript, HTML, Ruby, Groovy, YML, &amp; Shell scripting</small></li>
                 </ul>
           </section>
@@ -388,13 +423,13 @@
         <section id="team">
             <h3>InternationalMixMob Team Members</h3>
             <ul class="no_bullets">
-              <li><img class="diagram gravatar" src="http://wixmultimedia.com/tfd1/wp-content/uploads/2014/03/gravatar_default_550.jpg"/><strong>Cornell Wright</strong>, iOS Developer</li>
-              <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/14344a6d59f30c9b7485bcd2d6d27b5a?size=60&default=identicon"/><strong>Alpana Barua</strong>, Scrum Master &amp; part-time iOS Developer</li>
+              <li><img class="diagram gravatar" src="https://s.gravatar.com/avatar/aec38d7a8ff3b48590c1b9686b0b70de?s=80"/><strong>Cornell Wright</strong>, iOS Developer</li>
+              <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/14344a6d59f30c9b7485bcd2d6d27b5a?size=80"/><strong>Alpana Barua</strong>, Scrum Master &amp; part-time iOS Developer</li>
               <li><img class="diagram gravatar" src="https://s.gravatar.com/avatar/45dbab9ff1edae570312450399917cea?s=80"/><strong>Jeffry Pincus</strong>, Android Developer</li>
               <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/a13e67153255ff48b5e0d54bc3f042fd"/><strong>Frederick Jansen</strong>, Android, Hybrid Developer &amp; DevOps</li>
-              <li><img class="diagram gravatar" src="http://wixmultimedia.com/tfd1/wp-content/uploads/2014/03/gravatar_default_550.jpg"/><strong>Manoj Shenoy</strong>, iOS Developer</li>
-              <li><img class="diagram gravatar" src="http://wixmultimedia.com/tfd1/wp-content/uploads/2014/03/gravatar_default_550.jpg"/><strong>Justin Sanford</strong>, Android &amp; Hybrid Developer</li>
-              <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/1b63239469f0576c23e246e029c1911f?size=60&default=identicon"/><strong>Evan Borysko</strong>, Product Owner, part-time iOS/Hybrid Developer, &amp; DevOps</li>
+              <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/599f3487ec458598eb15cb03e1456c51?size=80"/><strong>Manoj Shenoy</strong>, iOS Developer</li>
+              <li><img class="diagram gravatar" src="https://s.gravatar.com/avatar/8a67fd95bc0dc49f22e8e45ed57525b7?s=80"/><strong>Justin Sanford</strong>, Android &amp; Hybrid Developer</li>
+              <li><img class="diagram gravatar" src="https://secure.gravatar.com/avatar/1b63239469f0576c23e246e029c1911f?size=60&amp;default=identicon"/><strong>Evan Borysko</strong>, Product Owner, part-time iOS/Hybrid Developer, &amp; DevOps</li>
             </ul>
         </section>
 
@@ -445,7 +480,7 @@
             <h3>Top 3 Deltas</h3>
             <ul>
               <li>Project consisted of many layers; wasn't sure how the different parts would work together until Sprint 2.</li>
-              <li>Communication was challenging with a large group of busy people spread across the country.</li>
+              <li>Working with git. Git is permissive and requires advanced knowledge to use properly. There were instances where code accidentally disappeared.</li>
               <li>Getting continuous integration working across all our repos for iOS and Android was a herculian task.</li>
             </ul>
           </section>
