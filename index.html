@@ -259,10 +259,28 @@
               needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
             </small></span></p>
           </section>
+<!--
+          <section id="parts2" data-markdown>
+              <script type="text/template">
+                ### Slacker Client
+                * [Objective-C](https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS) [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS) [![ReviewNinja](https://app.review.ninja/45960688/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS/badge.svg?branch=master&service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_iOS?branch=master)
+                * [Java](https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android) [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/tree/master) [![ReviewNinja](https://app.review.ninja/45960726/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android/badge.svg?branch=master&service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Client_Android?branch=master)
 
+                ### Slacker Cordova Plugin  [![ReviewNinja](https://app.review.ninja/45349867/badge)](https://app.review.ninja/eborysko-harvard/CSCI-E-71_InternationMixMob_Final_Project) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/badge.svg?service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin?)
+
+                * iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin)
+                * Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Cordova_Plugin/tree/master)
+
+                ### [Slacker Plugin Reference Application](https://github.com/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App) [![ReviewNinja](https://app.review.ninja/45960788/badge)](https://app.review.ninja/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App) [![Coverage Status](https://coveralls.io/repos/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App/badge.svg?branch=master&service=github)](https://coveralls.io/github/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App?branch=master)
+                * iOS [![Build Status](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg)](https://travis-ci.org/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
+                * Android [![Circle CI](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App.svg?style=svg)](https://circleci.com/gh/InternationalMixMob/CSCI-E-71_IMM_Slacker_Ref_App)
+
+              </script>
+          </section>
+-->
           <section id="code">
             <h2>Code</h2>
-            <p>GitHub - International Mix Mob organization</p>
+            <p>GitHub - <a href="https://github.com/InternationalMixMob">International Mix Mob</a> organization</p>
                 <ul>
                   <li><strong>7</strong> Repositories</li>
                   <li><strong>XXXX</strong> Lines of Code</li>
@@ -273,6 +291,32 @@
 
           <section id="tests">
             <h2>Tests</h2>
+            <ul>
+              <li><strong>15 unit test</strong> for Slacker Client for Android</li>
+              <li><strong>11 unit test</strong> for Slacker Client for iOS</li>
+              <li><strong>14 unit test</strong> for Slacker Plugin</li>
+              <li><strong>5 integration test</strong> for Slacker Plugin</li>
+              <li><strong>Total Test: 45</strong></li>
+            </ul>
+          </section>
+
+          <section id="tests-ci1">
+            <h2>Android Tests</h2>
+            <img src="img/Circle-CI-BuildWithTests.png" class="diagram"/>
+            <p>Running from Circle-CI</p>
+          </section>
+          <section id="tests-rp1">
+            <h2>Android Test Report</h2>
+            <img src="img/Android-Tests.png" class="diagram"/>
+            <p>Test Output</p>
+          </section>
+          <section id="tests-rp2">
+            <h2>iOS Tests</h2>
+            <img src="img/iOS-Tests.png" class="diagram"/>
+          </section>
+          <section id="tests-rp3">
+            <h2>Plugin Tests</h2>
+            <img src="img/slacker-integration-tests2.png" class="diagram"/>
           </section>
 
           <section id="code_coverage">
@@ -303,10 +347,39 @@
 
           <section id="auto">
             <h3>Automation</h3>
+
           </section>
 
           <section id="cd">
-            <h3>Continous Delivery</h3>
+            <h2>Continous Delivery</h2>
+            <table>
+              <tr>
+                <td>
+                  <img src="img/CD-android.png" class="diagram"/>
+                  <p>Publishing the Android App to Hockey App via Circle-CI</p>
+                </td>
+                <td>
+                  <img src="img/CD-iOS.png" class="diagram"/>
+                  <p>Publishing the iOS App to Hockey App via Travis-CI or Desktop</p>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section id="cd">
+            <h3>Continous Delivery from the Device</h3>
+            <table>
+              <tr>
+                <td>
+                  <img src="img/Hockey-update-example1.jpeg" class="diagram"/>
+                </td>
+                <td>
+                  <img src="img/Hockey-update-example2.jpeg" class="diagram"/>
+                </td>
+                <td>
+                  <img src="img/Hockey-update-example3.jpeg" class="diagram"/>
+                </td>
+              </tr>
+            </table>
           </section>
 
         </section>
@@ -320,14 +393,13 @@
               <li><strong>Frederick Jansen</strong>, Android, Hybrid Developer &amp; DevOps</li>
               <li><strong>Manoj Shenoy</strong>, iOS Developer</li>
               <li><strong>Justin Sanford</strong>, Android &amp; Hybrid Developer</li>
-              <li><strong>Evan Borysko</strong>, Product Owner, part-time iOS/Hybrid Developer, &amp; DevOps</li>
+              <li><img style="vertical-align:middle" src="https://secure.gravatar.com/avatar/1b63239469f0576c23e246e029c1911f?size=60&default=identicon">&nbsp;<strong>Evan Borysko</strong>, Product Owner, part-time iOS/Hybrid Developer, &amp; DevOps</li>
             </ul>
             <br>
             <div><small>Product owner: Evan Borysko</small><br>
             <small>Scrum Master: Alpana Barua</small></div>
 
         </section>
-
 
         <section id="tools">
           <h2>Tools</h2>
@@ -351,7 +423,7 @@
                   <li>Hackpad</li>
                   <li>Pointing Poker</li>
                   <li>Reveal.js</li>
-                  <li>Air Parrot</li>
+                  <li>Reflector</li>
                   <li>YouTube</li>
                 </ul>
               </td>
@@ -393,8 +465,8 @@
           </section>
 
           <section id="thankyou">
-            <h2>Thank You</h2>
-
+            <h1>Thank You</h1>
+            <p><a href="https://www.youtube.com/watch?v=ojydNb3Lrrs">So long and thanks for all the fish!</a>
           </section>
 
         </section>
