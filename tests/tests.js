@@ -4,20 +4,23 @@ exports.defineAutoTests = function () {
 
     it('should exist', function () {
       expect(Slacker).toBeDefined();
-      expect(typeof Slacker.postMessage == 'function').toBe(true);
       expect(typeof Slacker.init == 'function').toBe(true);
     });
 
-    it('can post messages', function (done) {
-      var returnMsg = '';
-      var success = function (message) {
-        returnMsg = message;
-      };
-      setTimeout(function () {
-        expect(returnMsg).toBe('message test');
-        done();
-      }, 100);
-      Slacker.postMessage(success, null, 'message test');
+    it('postMessage should exist', function () {
+      expect(typeof Slacker.postMessage == 'function').toBe(true);
+    });
+
+    it('authenticate should exist', function () {
+      expect(typeof Slacker.getChannelList == 'function').toBe(true);
+    });
+
+    it('presence should exist', function () {
+      expect(typeof Slacker.postMessage == 'function').toBe(true);
+    });
+
+    it('disconnect should exist', function () {
+      expect(typeof Slacker.disconnect == 'function').toBe(true);
     });
   });
 };
