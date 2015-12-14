@@ -252,15 +252,27 @@
             <h2>Significant Components</h2>
             <p align="left"><span class="fragment"><small>
               <strong><u>Slacker Client</u></strong><br>
-              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+              Native API client to Slack's RestFul Services. It handles communication with Slack and storing or cache state on the device. The goal
+              is to simplfy the orchastration of remote communication, authorization, authentication, presistence, and error handling. Example: Oauth, 
+              Token Storage, HTTP Client, Error Handling & Retry, Caching, etc...
+              <br>
+              <strong>&nbsp;- Client is writen in: Java and Objective-C</strong>
+              <br>
+              <strong>&nbsp;- Client is tested with: Junit and XCTest</strong>
             </small></span></p>
             <p align="left"><span class="fragment"><small>
               <strong><u>Slacker Cordova Plugin</u></strong><br>
-              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+              Provides a wrapper to use the Slacker client in hybrid mobile application. It provides Javascript convenience functions that focus on accessing the features of Slack API without needing to deals with the details of how remote communication, authorization, and threading is optimized.
+              <br>
+              <strong>&nbsp;- Plugin is writen in: Java, Objective-C, Javascript</strong>
+              <br>
+              <strong>&nbsp;- Plugin is tested with: Jasmine</strong>
             </small></span></p>
             <p align="left"><span class="fragment"><small>
               <strong><u>Slacker Reference Application</u></strong><br>
-              needs a small lightweight plugin that allows easy integration into their app to authenticate in Slack, must have high levels of code readability and transparency and the documentation needs to be clear and logical.<br>
+              Created to demostrate the use of the plugin in a typical Apache Cordova application. App contains demos of each feature of the plugin; Login, Listing Channels, Posting Messages, etc.
+              <br>
+               <strong>&nbsp;- App is writen in: Cordova, HTML5, Javascript, and CSS</strong>
             </small></span></p>
           </section>
           <section id="sig">
