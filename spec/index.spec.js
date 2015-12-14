@@ -80,6 +80,17 @@ describe('cordova-plugin-slacker', function () {
       );
     });
     
+    it('Checks for Slack Access Tokens', function () {
+      Slacker.checkTokenAvailibility(null, null, '');
+      expect(execSpy).toHaveBeenCalledWith(
+        jasmine.any(Function),
+        jasmine.any(Function),
+        'Slacker',
+        'checkTokenAvailibility',
+        ['']
+      );
+    });
+    
     it('should check presence', function () {
       var success = function () {};
       var error = function () {};
@@ -173,6 +184,19 @@ describe('cordova-plugin-slacker', function () {
         'Slacker',
         'getChannelList',
         [false]
+      );
+    });
+    
+    it('executes checkTokenAvailibility method  with callbacks' , function () {
+      var success = function () {};
+      var error = function () {};
+      Slacker.checkTokenAvailibility(success, error, true);
+      expect(execSpy).toHaveBeenCalledWith(
+        jasmine.any(Function),
+        jasmine.any(Function),
+        'Slacker',
+        'checkTokenAvailibility',
+        [true]
       );
     });
   });

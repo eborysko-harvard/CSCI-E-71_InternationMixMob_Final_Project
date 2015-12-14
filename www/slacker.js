@@ -46,19 +46,32 @@ module.exports = {
       }
     }
     exec(parseJSONStringSuccess, errorCallback, pluginName, 'getChannelList', [excludeArchivedChannels]);
-  },
+},
 
-  authenticate: function (successCallback, errorCallback, options) {
-    if (successCallback == null) {
-      successCallback = function () {
-      }
-    }
-    if (errorCallback == null) {
-      errorCallback = function () {
-      }
-    }
-    exec(successCallback, errorCallback, pluginName, 'slackAuthenticate', [options]);
-  },
+authenticate: function(successCallback,errorCallback,options) {
+               if (successCallback == null) {
+               successCallback = function () {
+               }
+               }
+               if (errorCallback == null) {
+               errorCallback = function () {
+               }
+               }
+    exec(successCallback,errorCallback,pluginName, 'slackAuthenticate', [options]);
+},
+               
+checkTokenAvailibility: function (successCallback, errorCallback, options) {
+if (successCallback == null) {
+successCallback = function () {
+}
+}
+
+if (errorCallback == null) {
+errorCallback = function () {
+}
+}
+exec(successCallback, errorCallback, pluginName, 'checkTokenAvailibility', [options]);
+},
 
   presence: function (successCallback, errorCallback, userid) {
     if (successCallback == null) {

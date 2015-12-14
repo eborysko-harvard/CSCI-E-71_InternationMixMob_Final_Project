@@ -27,6 +27,8 @@
 
 - (void) getChannelList:(CDVInvokedUrlCommand *) command;
 
+- (void) checkTokenAvailibility:(CDVInvokedUrlCommand *) command;
+
 #pragma mark - Slack_Utility
 
 -(NSString*) getStoredAccessCode;

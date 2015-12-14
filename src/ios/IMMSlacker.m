@@ -199,12 +199,22 @@ NSString *currentCallBackID;
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+-(void) checkTokenAvailibility:(CDVInvokedUrlCommand *)command
+{
+    CDVPluginResult *pluginResult;
+    if(![self getStoredAccessCode])
+         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                                          messageAsBool:NO];
+    else
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                           messageAsBool:YES];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
 
 
 
 #pragma mark - Slack_Utility
-
-
 
 + (NSString*) getStoredCodes : (NSString* ) key {
     NSArray* URLTypes = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
